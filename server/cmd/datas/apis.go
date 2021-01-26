@@ -56,7 +56,7 @@ var Apis = []model.SysApi{
 	{global.GVA_MODEL{ID: 42, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/system/getServerInfo", "获取服务器信息", "system", "POST"},
 	{global.GVA_MODEL{ID: 43, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/email/emailTest", "发送测试邮件", "email", "POST"},
 	{global.GVA_MODEL{ID: 47, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/findK8sNamespaces", "根据ID获取k8sNamespaces", "k8sNamespaces", "GET"},
-	{global.GVA_MODEL{ID: 48, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/getK8sNamespacesList", "获取所有k8sNamespaces", "k8sNamespaces", "GET"},
+	{global.GVA_MODEL{ID: 48, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/getK8sNamespacesList", "获取所有k8sNamespaces", "k8sNamespaces", "POST"},
 }
 
 func InitSysApi(db *gorm.DB) {
