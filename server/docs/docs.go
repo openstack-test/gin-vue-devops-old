@@ -1071,44 +1071,6 @@ var doc = `{
                 }
             }
         },
-        "/k8sNamespaces/updateK8sNamespaces": {
-            "put": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "consumes": [
-                    "application/json"
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "K8sNamespaces"
-                ],
-                "summary": "更新K8sNamespaces",
-                "parameters": [
-                    {
-                        "description": "更新K8sNamespaces",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/model.K8sNamespaces"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
         "/menu/GetMenuAuthority": {
             "post": {
                 "security": [

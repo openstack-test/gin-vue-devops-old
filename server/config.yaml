@@ -41,7 +41,7 @@ email:
   host: 'smtp.163.com'
   is-ssl: true
   secret: 'xxx'
-  nickname: 'test'
+  nickname: 'test111'
 
 # casbin configuration
 casbin:

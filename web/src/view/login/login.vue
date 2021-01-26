@@ -70,7 +70,7 @@
 
       <div class="footer">
         <div class="copyright">
-          Copyright &copy; {{ curYear }} 💖xuchao
+          Copyright &copy; {{ curYear }} 💖openstack-test
         </div>
       </div>
     </div>

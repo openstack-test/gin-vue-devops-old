@@ -9,8 +9,8 @@ import (
 //@return: err error
 
 func EmailTest() (err error) {
-	subject := "test"
-	body := "test"
+	subject := "test111"
+	body := "test111"
 	err = utils.EmailTest(subject, body)
 	return err
 }
