@@ -5,7 +5,7 @@
       </el-form>
     </div>
     <el-table
-      :data="tableData"
+      :data="tableData.slice((page-1)*pageSize,page*pageSize)"
       @selection-change="handleSelectionChange"
       border
       ref="multipleTable"
