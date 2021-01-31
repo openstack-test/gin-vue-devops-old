@@ -208,10 +208,25 @@ definitions:
       fieldType:
         type: string
     type: object
+  model.K8sDeployment:
+    properties:
+      createdAt:
+        type: string
+      deployment:
+        type: string
+      id:
+        type: integer
+      namespace:
+        type: string
+      status:
+        type: string
+      time:
+        type: string
+      updatedAt:
+        type: string
+    type: object
   model.K8sNamespaces:
     properties:
-      age:
-        type: string
       createdAt:
         type: string
       id:
@@ -219,6 +234,8 @@ definitions:
       namespace:
         type: string
       status:
+        type: string
+      time:
         type: string
       updatedAt:
         type: string
@@ -404,10 +421,29 @@ definitions:
           type: integer
         type: array
     type: object
+  request.K8sDeploymentSearch:
+    properties:
+      createdAt:
+        type: string
+      deployment:
+        type: string
+      id:
+        type: integer
+      namespace:
+        type: string
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      status:
+        type: string
+      time:
+        type: string
+      updatedAt:
+        type: string
+    type: object
   request.K8sNamespacesSearch:
     properties:
-      age:
-        type: string
       createdAt:
         type: string
       id:
@@ -419,6 +455,8 @@ definitions:
       pageSize:
         type: integer
       status:
+        type: string
+      time:
         type: string
       updatedAt:
         type: string
@@ -1003,17 +1041,17 @@ paths:
       summary: jwt加入黑名单
       tags:
       - Jwt
-  /k8sNamespaces/createK8sNamespaces:
+  /k8sDeployments/createK8sDeployment:
     post:
       consumes:
       - application/json
       parameters:
-      - description: 创建K8sNamespaces
+      - description: 创建K8sDeployment
         in: body
         name: data
         required: true
         schema:
-          $ref: '#/definitions/model.K8sNamespaces'
+          $ref: '#/definitions/model.K8sDeployment'
       produces:
       - application/json
       responses:
@@ -1023,20 +1061,20 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-      summary: 创建K8sNamespaces
+      summary: 创建K8sDeployment
       tags:
-      - K8sNamespaces
-  /k8sNamespaces/deleteK8sNamespaces:
+      - K8sDeployment
+  /k8sDeployments/deleteK8sDeployment:
     delete:
       consumes:
       - application/json
       parameters:
-      - description: 删除K8sNamespaces
+      - description: 删除K8sDeployment
         in: body
         name: data
         required: true
         schema:
-          $ref: '#/definitions/model.K8sNamespaces'
+          $ref: '#/definitions/model.K8sDeployment'
       produces:
       - application/json
       responses:
@@ -1046,15 +1084,15 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-      summary: 删除K8sNamespaces
+      summary: 删除K8sDeployment
       tags:
-      - K8sNamespaces
-  /k8sNamespaces/deleteK8sNamespacesByIds:
+      - K8sDeployment
+  /k8sDeployments/deleteK8sDeploymentByIds:
     delete:
       consumes:
       - application/json
       parameters:
-      - description: 批量删除K8sNamespaces
+      - description: 批量删除K8sDeployment
         in: body
         name: data
         required: true
@@ -1069,9 +1107,78 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-      summary: 批量删除K8sNamespaces
+      summary: 批量删除K8sDeployment
       tags:
-      - K8sNamespaces
+      - K8sDeployment
+  /k8sDeployments/findK8sDeployment:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用id查询K8sDeployment
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sDeployment'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询K8sDeployment
+      tags:
+      - K8sDeployment
+  /k8sDeployments/getK8sDeploymentList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 分页获取K8sDeployment列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.K8sDeploymentSearch'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取K8sDeployment列表
+      tags:
+      - K8sDeployment
+  /k8sDeployments/updateK8sDeployment:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新K8sDeployment
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sDeployment'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新K8sDeployment
+      tags:
+      - K8sDeployment
   /k8sNamespaces/findK8sNamespaces:
     get:
       consumes:
@@ -1096,7 +1203,7 @@ paths:
       tags:
       - K8sNamespaces
   /k8sNamespaces/getK8sNamespacesList:
-    get:
+    post:
       consumes:
       - application/json
       parameters:
@@ -1116,29 +1223,6 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取K8sNamespaces列表
-      tags:
-      - K8sNamespaces
-  /k8sNamespaces/updateK8sNamespaces:
-    put:
-      consumes:
-      - application/json
-      parameters:
-      - description: 更新K8sNamespaces
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/model.K8sNamespaces'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"success":true,"data":{},"msg":"更新成功"}'
-          schema:
-            type: string
-      security:
-      - ApiKeyAuth: []
-      summary: 更新K8sNamespaces
       tags:
       - K8sNamespaces
   /menu/GetMenuAuthority:

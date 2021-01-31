@@ -881,7 +881,7 @@ var doc = `{
                 }
             }
         },
-        "/k8sNamespaces/createK8sNamespaces": {
+        "/k8sDeployments/createK8sDeployment": {
             "post": {
                 "security": [
                     {
@@ -895,17 +895,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "K8sNamespaces"
+                    "K8sDeployment"
                 ],
-                "summary": "创建K8sNamespaces",
+                "summary": "创建K8sDeployment",
                 "parameters": [
                     {
-                        "description": "创建K8sNamespaces",
+                        "description": "创建K8sDeployment",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.K8sNamespaces"
+                            "$ref": "#/definitions/model.K8sDeployment"
                         }
                     }
                 ],
@@ -919,7 +919,7 @@ var doc = `{
                 }
             }
         },
-        "/k8sNamespaces/deleteK8sNamespaces": {
+        "/k8sDeployments/deleteK8sDeployment": {
             "delete": {
                 "security": [
                     {
@@ -933,17 +933,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "K8sNamespaces"
+                    "K8sDeployment"
                 ],
-                "summary": "删除K8sNamespaces",
+                "summary": "删除K8sDeployment",
                 "parameters": [
                     {
-                        "description": "删除K8sNamespaces",
+                        "description": "删除K8sDeployment",
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-                            "$ref": "#/definitions/model.K8sNamespaces"
+                            "$ref": "#/definitions/model.K8sDeployment"
                         }
                     }
                 ],
@@ -957,7 +957,7 @@ var doc = `{
                 }
             }
         },
-        "/k8sNamespaces/deleteK8sNamespacesByIds": {
+        "/k8sDeployments/deleteK8sDeploymentByIds": {
             "delete": {
                 "security": [
                     {
@@ -971,12 +971,12 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-                    "K8sNamespaces"
+                    "K8sDeployment"
                 ],
-                "summary": "批量删除K8sNamespaces",
+                "summary": "批量删除K8sDeployment",
                 "parameters": [
                     {
-                        "description": "批量删除K8sNamespaces",
+                        "description": "批量删除K8sDeployment",
                         "name": "data",
                         "in": "body",
                         "required": true,
@@ -988,6 +988,120 @@ var doc = `{
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sDeployments/findK8sDeployment": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sDeployment"
+                ],
+                "summary": "用id查询K8sDeployment",
+                "parameters": [
+                    {
+                        "description": "用id查询K8sDeployment",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sDeployment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sDeployments/getK8sDeploymentList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sDeployment"
+                ],
+                "summary": "分页获取K8sDeployment列表",
+                "parameters": [
+                    {
+                        "description": "分页获取K8sDeployment列表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.K8sDeploymentSearch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sDeployments/updateK8sDeployment": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sDeployment"
+                ],
+                "summary": "更新K8sDeployment",
+                "parameters": [
+                    {
+                        "description": "更新K8sDeployment",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sDeployment"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -1034,7 +1148,7 @@ var doc = `{
             }
         },
         "/k8sNamespaces/getK8sNamespacesList": {
-            "get": {
+            "post": {
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -2062,12 +2176,35 @@ var doc = `{
                 }
             }
         },
+        "model.K8sDeployment": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "deployment": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
         "model.K8sNamespaces": {
             "type": "object",
             "properties": {
-                "age": {
-                    "type": "string"
-                },
                 "createdAt": {
                     "type": "string"
                 },
@@ -2078,6 +2215,9 @@ var doc = `{
                     "type": "string"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "time": {
                     "type": "string"
                 },
                 "updatedAt": {
@@ -2363,12 +2503,41 @@ var doc = `{
                 }
             }
         },
+        "request.K8sDeploymentSearch": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "deployment": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "namespace": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
         "request.K8sNamespacesSearch": {
             "type": "object",
             "properties": {
-                "age": {
-                    "type": "string"
-                },
                 "createdAt": {
                     "type": "string"
                 },
@@ -2385,6 +2554,9 @@ var doc = `{
                     "type": "integer"
                 },
                 "status": {
+                    "type": "string"
+                },
+                "time": {
                     "type": "string"
                 },
                 "updatedAt": {
