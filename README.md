@@ -156,28 +156,18 @@ npm run build
 ## 主要功能
 
 - 权限管理：基于`jwt`和`casbin`实现的权限管理 
-- 文件上传下载：实现基于七牛云的文件上传操作
-- 分页封装：前端使用mixins封装分页，分页方法调用mixins即可 
-- 用户管理：系统管理员分配用户角色和角色权限。
 - 角色管理：创建权限控制的主要对象，可以给角色分配不同api权限和菜单权限。
 - 菜单管理：实现用户动态菜单配置，实现不同角色不同菜单。
 - api管理：不同用户可调用的api接口的权限不同。
-- 配置管理：配置文件可前台修改（测试环境不开放此功能）。
-- 条件搜索：增加条件搜索示例。
-- restful示例：可以参考用户管理模块中的示例API。 
-```
-前端文件参考: src\view\superAdmin\api\api.vue 
-后台文件参考: model\dnModel\api.go 
-```
-- 多点登录限制：需要在`config.yaml`中把`system`中的`useMultipoint`修改为true(需要自行配置Redis和Config中的Redis参数，测试阶段，有bug请及时反馈)。
-- 分片长传：提供文件分片上传和大文件分片上传功能示例。
 - 表单生成器：表单生成器借助 [@form-generator](https://github.com/JakHuang/form-generator)。
-- 代码生成器：后台基础逻辑以及简单curd的代码生成器。 
+- 代码生成器：后台基础逻辑以及简单curd的代码生成器。
+- Kubernetes管理：包括NameSpace、Deployment、Pod容器等资源对象。
 
 ## 计划任务
 
-- [ ] 管理Kubernetes集群资源对象
-- [ ] 应用发布、应用部署
+- [ ] 完善Kubernetes资源对象管理
+- [ ] 应用创建部署、回滚
+- [ ] 其他
 
 
 
