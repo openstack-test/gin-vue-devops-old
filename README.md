@@ -1,7 +1,5 @@
 # 项目介绍
-本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、CI持续集成、CD持续部署等目标。
-
-> Gin-vue-admin是一个基于vue和gin开发的全栈前后端分离的后台管理系统，集成jwt鉴权，动态路由，动态菜单，casbin鉴权，表单生成器，代码生成器等功能，提供多种文件上传工具，让您把更多时间专注在业务开发上。
+本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
 
 ## 技术栈
 - 前端UI框架：[element-ui](https://github.com/ElemeFE/element) 
@@ -22,8 +20,7 @@
 # 克隆项目
 git clone git@github.com:openstack-test/gin-vue-devops.git
 
-# 修改server/config.yaml文件. gin-vue-devops后端服务启动依赖于mysql和redis数据库，故需要事先配置server/config.yaml全局文件，其中mysql数据库需要先创建好。
-
+# 修改server/config.yaml文件. 其中mysql数据库需要先创建好
 # mysql configuration
 mysql:
   path: '127.0.0.1:3306'
@@ -40,6 +37,8 @@ redis:
   db: 0
   addr: '127.0.0.1:6379'
   password: ''
+
+# 将kubeconfig文件放在server/kubeconfig目录下,文件名为.kube-staging
 ```
 
 ### 初始化数据库
@@ -59,7 +58,7 @@ make gva
 make initdb
 ```
 
-使用 goland等编辑工具，打开server目录，不可以打开 gin-vue-devops根目录
+使用 goland等编辑工具，打开server目录
 
 ```bash
 

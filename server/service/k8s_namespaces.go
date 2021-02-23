@@ -13,6 +13,7 @@ import (
 
 // 定义结构体绑定数据
 type Result struct {
+	ID        int               `json:"id"`
 	Namespace string            `json:"namespace"`
 	Status    v1.NamespacePhase `json:"status"`
 	Time      metav1.Time       `json:"time"`
@@ -42,8 +43,9 @@ func GetK8sNamespacesList(info request.K8sNamespacesSearch) (err error, list []*
 	if err != nil {
 		log.Fatalln(err)
 	}
-	for _, nss := range ns.Items {
+	for key, nss := range ns.Items {
 		res := &Result{
+			ID:        key,
 			Namespace: nss.Name,
 			Status:    nss.Status.Phase,
 			Time:      nss.CreationTimestamp,

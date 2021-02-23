@@ -13,17 +13,24 @@
       style="width: 100%"
       tooltip-effect="dark"
     >
+    <el-table-column label="ID" prop="id" width="100"></el-table-column>
     <el-table-column label="命名空间" prop="namespace" width="200"></el-table-column> 
     
     <el-table-column label="运行状态" prop="status" width="200"></el-table-column> 
     
     <el-table-column label="创建时间" prop="time" width="200"></el-table-column> 
 	<el-table-column label="应用列表" prop="application">
-    <el-link 
-    href="/system/getServerInfo">查看<i class="el-icon-view el-icon--right" ></i> 
-   </el-link>
+    <template slot-scope="scope">
+    <el-button
+              v-permisaction="['process:list:upcoming:select']"
+              size="mini"
+              type="text"
+              icon="el-icon-edit"
+              @click="handleView(scope.row)"
+            >查看</el-button>
+  </template>
   </el-table-column>   
-    </el-table>
+  </el-table>
 
     <el-pagination
       :current-page="page"
@@ -42,6 +49,7 @@
 import {
     getK8sNamespacesList
 } from "@/api/k8sNamespaces";
+
 import infoList from "@/mixins/infoList";
 export default {
   name: "K8sNamespaces",
@@ -63,9 +71,15 @@ export default {
 
   async created() {
     await this.getTableData();
-}
+},
+
+  methods: {
+    handleView(row) {
+      this.$router.push({ name: 'k8sDeployments', query: { namespace: row.namespace, processId: row.process }})
+    },
+  }
 };
 </script>
 
-<style>
+<style scoped>
 </style>

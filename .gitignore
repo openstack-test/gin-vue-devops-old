@@ -2,7 +2,7 @@
 /web/node_modules
 /web/dist
 /server/*.exe
-/server/kubeconfig
+/server/kubeconfig/*
 
 .DS_Store
 
