@@ -82,7 +82,10 @@
       <el-table-column prop="columnName" label="数据库字段" width="130"></el-table-column>
       <el-table-column prop="comment" label="数据库字段描述" width="130"></el-table-column>
       <el-table-column prop="fieldSearchType" label="搜索条件" width="130"></el-table-column>
+<<<<<<< HEAD
       <el-table-column prop="dictType" label="字典" width="130"></el-table-column>
+=======
+>>>>>>> develop
       <el-table-column label="操作" width="300">
         <template slot-scope="scope">
           <el-button
@@ -146,7 +149,10 @@ const fieldTemplate = {
 import FieldDialog from "@/view/systemTools/autoCode/component/fieldDialog.vue";
 import { toUpperCase, toHump } from "@/utils/stringFun.js";
 import { createTemp, getDB, getTable, getColumn } from "@/api/autoCode.js";
+<<<<<<< HEAD
 import { getDict } from "@/utils/dictionary";
+=======
+>>>>>>> develop
 
 export default {
   name: "autoCode",
@@ -353,6 +359,7 @@ export default {
           });
       }
     },
+<<<<<<< HEAD
     async setFdMap() {
       const fdTypes = ["string", "int", "bool", "float64", "time.Time"];
       fdTypes.map(async fdtype => {
@@ -362,6 +369,8 @@ export default {
         });
       });
     }
+=======
+>>>>>>> develop
   },
   created() {
     this.getDb();

@@ -1,7 +1,11 @@
 # 项目介绍
+<<<<<<< HEAD
 本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、CI持续集成、CD持续部署等目标。
 
 > Gin-vue-admin是一个基于vue和gin开发的全栈前后端分离的后台管理系统，集成jwt鉴权，动态路由，动态菜单，casbin鉴权，表单生成器，代码生成器等功能，提供多种文件上传工具，让您把更多时间专注在业务开发上。
+=======
+本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
+>>>>>>> develop
 
 ## 技术栈
 - 前端UI框架：[element-ui](https://github.com/ElemeFE/element) 
@@ -22,8 +26,12 @@
 # 克隆项目
 git clone git@github.com:openstack-test/gin-vue-devops.git
 
+<<<<<<< HEAD
 # 修改server/config.yaml文件. gin-vue-devops后端服务启动依赖于mysql和redis数据库，故需要事先配置server/config.yaml全局文件，其中mysql数据库需要先创建好。
 
+=======
+# 修改server/config.yaml文件. 其中mysql数据库需要先创建好
+>>>>>>> develop
 # mysql configuration
 mysql:
   path: '127.0.0.1:3306'
@@ -40,6 +48,11 @@ redis:
   db: 0
   addr: '127.0.0.1:6379'
   password: ''
+<<<<<<< HEAD
+=======
+
+# 将kubeconfig文件放在server/kubeconfig目录下,文件名为.kube-staging
+>>>>>>> develop
 ```
 
 ### 初始化数据库
@@ -59,7 +72,11 @@ make gva
 make initdb
 ```
 
+<<<<<<< HEAD
 使用 goland等编辑工具，打开server目录，不可以打开 gin-vue-devops根目录
+=======
+使用 goland等编辑工具，打开server目录
+>>>>>>> develop
 
 ```bash
 
@@ -113,7 +130,11 @@ npm run build
 - 数据库：采用`MySql`(5.6.44)版本，使用`gorm`实现对数据库的基本操作。
 - 缓存：使用`Redis`实现记录当前活跃用户的`jwt`令牌并实现多点登录限制。
 - API文档：使用`Swagger`构建自动化文档。
+<<<<<<< HEAD
 - 配置文件：使用`fsnotify`和`viper`实现`yaml`格式的配置文件。
+=======
+- 配置文件：使用`viper`实现`yaml`格式的配置文件。
+>>>>>>> develop
 - 日志：使用`zap`实现日志记录。
 
 ## 系统架构图
@@ -157,6 +178,7 @@ npm run build
 ## 主要功能
 
 - 权限管理：基于`jwt`和`casbin`实现的权限管理 
+<<<<<<< HEAD
 - 文件上传下载：实现基于七牛云的文件上传操作
 - 分页封装：前端使用mixins封装分页，分页方法调用mixins即可 
 - 用户管理：系统管理员分配用户角色和角色权限。
@@ -180,6 +202,20 @@ npm run build
 
 - [ ] 管理Kubernetes集群资源对象
 - [ ] 应用发布、应用部署
+=======
+- 角色管理：创建权限控制的主要对象，可以给角色分配不同api权限和菜单权限。
+- 菜单管理：实现用户动态菜单配置，实现不同角色不同菜单。
+- api管理：不同用户可调用的api接口的权限不同。
+- 表单生成器：表单生成器借助 [@form-generator](https://github.com/JakHuang/form-generator)。
+- 代码生成器：后台基础逻辑以及简单curd的代码生成器。
+- Kubernetes管理：包括NameSpace、Deployment、Pod容器等资源对象。
+
+## 计划任务
+
+- [ ] 完善Kubernetes资源对象管理
+- [ ] 应用创建部署、回滚
+- [ ] 其他
+>>>>>>> develop
 
 
 

@@ -93,8 +93,13 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 import musicPlayer from "./component/musicPlayer";
 import TodoList from "./component/todoList";
+=======
+//import musicPlayer from "./component/musicPlayer";
+//import TodoList from "./component/todoList";
+>>>>>>> develop
 import { mapGetters } from "vuex";
 export default {
   name: "Dashboard",
@@ -196,4 +201,8 @@ export default {
     }
   }
 }
+<<<<<<< HEAD
 </style>
+=======
+</style>
+>>>>>>> develop

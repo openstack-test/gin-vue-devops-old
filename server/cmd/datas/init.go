@@ -16,10 +16,15 @@ func InitMysqlData(db *gorm.DB) {
 	InitSysAuthority(db)
 	InitSysBaseMenus(db)
 	InitAuthorityMenu(db)
+<<<<<<< HEAD
 	InitSysDictionary(db)
 	InitSysAuthorityMenus(db)
 	InitSysDataAuthorityId(db)
 	InitSysDictionaryDetail(db)
+=======
+	InitSysAuthorityMenus(db)
+	InitSysDataAuthorityId(db)
+>>>>>>> develop
 	InitExaFileUploadAndDownload(db)
 }
 
@@ -34,8 +39,11 @@ func InitMysqlTables(db *gorm.DB) {
 		model.SysBaseMenu{},
 		model.SysAuthority{},
 		model.JwtBlacklist{},
+<<<<<<< HEAD
 		model.SysDictionary{},
 		model.SysDictionaryDetail{},
+=======
+>>>>>>> develop
 		model.SysBaseMenuParameter{},
 		model.ExaFileUploadAndDownload{},
 	)

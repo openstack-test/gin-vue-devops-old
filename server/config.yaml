@@ -41,7 +41,11 @@ email:
   host: 'smtp.163.com'
   is-ssl: true
   secret: 'xxx'
+<<<<<<< HEAD
   nickname: 'test'
+=======
+  nickname: 'test111'
+>>>>>>> develop
 
 # casbin configuration
 casbin:

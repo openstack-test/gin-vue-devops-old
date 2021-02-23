@@ -2,8 +2,14 @@ package utils
 
 import (
 	"gin-vue-admin/global"
+<<<<<<< HEAD
 	"go.uber.org/zap"
 	"os"
+=======
+	"os"
+
+	"go.uber.org/zap"
+>>>>>>> develop
 )
 
 //@function: PathExists
@@ -22,7 +28,10 @@ func PathExists(path string) (bool, error) {
 	return false, err
 }
 
+<<<<<<< HEAD
 //@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: CreateDir
 //@description: 批量创建文件夹
 //@param: dirs ...string
@@ -38,7 +47,11 @@ func CreateDir(dirs ...string) (err error) {
 			global.GVA_LOG.Debug("create directory" + v)
 			err = os.MkdirAll(v, os.ModePerm)
 			if err != nil {
+<<<<<<< HEAD
 				global.GVA_LOG.Error("create directory"+ v, zap.Any(" error:", err))
+=======
+				global.GVA_LOG.Error("create directory"+v, zap.Any(" error:", err))
+>>>>>>> develop
 			}
 		}
 	}

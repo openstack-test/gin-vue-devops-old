@@ -39,10 +39,17 @@ func MysqlTables(db *gorm.DB) {
 		model.SysBaseMenu{},
 		model.SysBaseMenuParameter{},
 		model.JwtBlacklist{},
+<<<<<<< HEAD
 		model.SysDictionary{},
 		model.SysDictionaryDetail{},
 		model.ExaFileUploadAndDownload{},
 		model.ExaWfLeave{},
+=======
+		model.ExaFileUploadAndDownload{},
+		model.ExaWfLeave{},
+		model.K8sNamespaces{},
+		model.K8sDeployment{},
+>>>>>>> develop
 	)
 	if err != nil {
 		global.GVA_LOG.Error("register table failed", zap.Any("err", err))
