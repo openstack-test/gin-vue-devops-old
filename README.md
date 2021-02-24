@@ -54,7 +54,7 @@ redis:
 ```bash
 # 在server目录下,先构建gva终端工具
 make gva
-# 使用gva进行初始化数据, 如果不使用make initdb, 使用./gva initdb也可以
+# 使用gva初始化数据, 如果不使用make initdb, 使用./gva initdb也可以
 make initdb
 ```
 
@@ -66,10 +66,26 @@ make initdb
 go list (go mod tidy)
 
 # 编译
-go build
+go build -o gin-vue-devops
 
 # 启动服务
 ./gin-vue-devops
+```
+
+## 启动Web端
+
+```bash
+# 进入web前端目录
+cd web
+
+# 安装依赖
+npm install --registry=https://registry.npm.taobao.org
+
+# 启动前端服务,会自动打开浏览器页面
+npm run serve
+
+# 发布打包（只在正式上线时使用）,将生成的dist目录下的所有文件拷贝到nginx目录下
+npm run build
 ```
 
 ## Swagger自动化API文档
@@ -86,22 +102,6 @@ cd server
 swag init
 ````
 执行上面的命令后，server目录下会出现docs文件夹，登录http://localhost:8888/swagger/index.html, 即可查看swagger文档
-
-## 启动Web端
-
-```bash
-# 进入web前端目录
-cd web
-
-# 安装依赖
-npm install --registry=https://registry.npm.taobao.org
-
-# 启动前端服务,会自动打开浏览器页面
-npm run serve
-
-# 发布打包（可选）,将生成的dist目录下的所有文件拷贝到nginx目录下
-npm run build
-```
 
 #  项目架构
 

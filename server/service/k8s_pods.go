@@ -17,6 +17,7 @@ type PodResult struct {
 	ID           int               `json:"id"`
 	PodName      string            `json:"podName"`
 	PodIP        string            `json:"podIP"`
+	HostIP       string            `json:"hostIP"`
 	Status       v1.PodPhase      `json:"status"`
 	StartTime    time.Time         `json:"startTime"`
 	RestartCount int32             `json:"restartCount"`
@@ -93,6 +94,7 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 			ID: key,
 			PodName: pods.ObjectMeta.Name,
 			PodIP: pods.Status.PodIP,
+			HostIP: pods.Status.HostIP,
 			Status: pods.Status.Phase,
 			StartTime: pods.Status.StartTime.Time,
 			RestartCount: pods.Status.ContainerStatuses[0].RestartCount,
