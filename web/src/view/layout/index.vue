@@ -83,8 +83,8 @@
 <script>
 import Aside from '@/view/layout/aside'
 import HistoryComponent from '@/view/layout/aside/historyComponent/history'
-import Screenfull from '@/view/layout/screenfull'
-import Search from '@/view/layout/search/search'
+//import Screenfull from '@/view/layout/screenfull'
+//import Search from '@/view/layout/search/search'
 import BottomInfo from '@/view/layout/bottomInfo/bottomInfo'
 import { mapGetters, mapActions } from 'vuex'
 import CustomPic from '@/components/customPic'
