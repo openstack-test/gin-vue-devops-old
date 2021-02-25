@@ -122,7 +122,7 @@ swag init
 ![前端详细设计图](http://qmplusimg.henrongyi.top/naotu.png)
 
 功能预览
-![image](/docs/feature-1.png)
+![功能预览](./docs/feature-1.png)
 
 ## 目录结构
 
