@@ -1,8 +1,8 @@
 # 项目介绍
-本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
+本项目基于优秀的[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端框架开发(特别感谢!)，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
 
 ## 技术栈
-- 前端UI框架：[element-ui](https://github.com/ElemeFE/element) 
+- 前端框架：[element-ui](https://github.com/ElemeFE/element)、[Vue](https://cn.vuejs.org/)
 - 后台框架：[gin](https://github.com/gin-gonic/gin) 
 
 # 部署使用
