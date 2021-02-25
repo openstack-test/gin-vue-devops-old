@@ -1,9 +1,9 @@
 # 项目介绍
-本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端集成框架开发，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
+本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端框架开发 (特别感谢!)，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
 
 ## 技术栈
-- 前端UI框架：[element-ui](https://github.com/ElemeFE/element) 
-- 后台框架：[gin](https://github.com/gin-gonic/gin) 
+- 前端框架：[Element-ui](https://github.com/ElemeFE/element)、[Vue](https://cn.vuejs.org/)
+- 后台框架：[Gin](https://github.com/gin-gonic/gin) 
 
 # 部署使用
 
@@ -11,7 +11,6 @@
 - node版本 > v8.6.0
 - golang版本 >= v1.14
 - IDE推荐：Goland
-- 请替换掉项目中的七牛云公钥，私钥，仓名和默认url地址，以免发生测试文件数据错乱
 ```
 
 ## 启动Server端
@@ -54,6 +53,7 @@ redis:
 ```bash
 # 在server目录下,先构建gva终端工具
 make gva
+
 # 使用gva初始化数据, 如果不使用make initdb, 使用./gva initdb也可以
 make initdb
 ```
@@ -114,6 +114,7 @@ swag init
 - API文档：使用`Swagger`构建自动化文档。
 - 配置文件：使用`viper`实现`yaml`格式的配置文件。
 - 日志：使用`zap`实现日志记录。
+- Kubernetes：使用`client-go`库管理Kubernetes资源。
 
 ## 系统架构图
 后端
@@ -121,6 +122,9 @@ swag init
 
 前端
 ![前端详细设计图](http://qmplusimg.henrongyi.top/naotu.png)
+
+功能预览
+![功能预览](./docs/feature-1.png)
 
 ## 目录结构
 
@@ -155,16 +159,28 @@ swag init
 
 ## 主要功能
 
-- 权限管理：基于`jwt`和`casbin`实现的权限管理 
-- 角色管理：创建权限控制的主要对象，可以给角色分配不同api权限和菜单权限。
-- 菜单管理：实现用户动态菜单配置，实现不同角色不同菜单。
-- api管理：不同用户可调用的api接口的权限不同。
+- 权限管理：基于`jwt`和`casbin`实现权限管理 
+- 角色管理：创建权限控制的主要对象，可以给角色分配不同api权限和菜单权限
+- 菜单管理：实现用户动态菜单配置，实现不同角色不同菜单
+- api管理：不同用户可调用的api接口的权限不同
 - 表单生成器：表单生成器借助 [@form-generator](https://github.com/JakHuang/form-generator)。
-- 代码生成器：后台基础逻辑以及简单curd的代码生成器。
-- Kubernetes管理：包括NameSpace、Deployment、Pod容器等资源对象。
+- 代码生成器：基础逻辑以及简单curd代码自动生成
+- Kubernetes管理：包括集群、NameSpace、Deployment、Pod容器等资源对象管理
 
 ## 计划任务
 
 - [ ] 完善Kubernetes资源对象管理
+<<<<<<< HEAD
 - [ ] 应用创建部署、回滚
 - [ ] 其他
+=======
+- [ ] 应用创建、回滚、查询、进入容器等
+- [ ] 其他
+
+
+
+
+
+
+
+>>>>>>> develop

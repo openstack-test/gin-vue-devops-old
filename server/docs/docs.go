@@ -1422,9 +1422,240 @@ var doc = `{
             }
         },
 <<<<<<< HEAD
+<<<<<<< HEAD
         "/sysDictionary/deleteSysDictionary": {
             "delete": {
 =======
+=======
+        "/k8sPods/createK8sPods": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "创建K8sPods",
+                "parameters": [
+                    {
+                        "description": "创建K8sPods",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sPods"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sPods/deleteK8sPods": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "删除K8sPods",
+                "parameters": [
+                    {
+                        "description": "删除K8sPods",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sPods"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sPods/deleteK8sPodsByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "批量删除K8sPods",
+                "parameters": [
+                    {
+                        "description": "批量删除K8sPods",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sPods/findK8sPods": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "用id查询K8sPods",
+                "parameters": [
+                    {
+                        "description": "用id查询K8sPods",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sPods"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sPods/getK8sPodsList": {
+            "get": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "分页获取K8sPods列表",
+                "parameters": [
+                    {
+                        "description": "分页获取K8sPods列表",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.K8sPodsSearch"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sPods/updateK8sPods": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sPods"
+                ],
+                "summary": "更新K8sPods",
+                "parameters": [
+                    {
+                        "description": "更新K8sPods",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sPods"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+>>>>>>> develop
         "/menu/GetMenuAuthority": {
             "post": {
 >>>>>>> develop
@@ -2630,6 +2861,9 @@ var doc = `{
                 "namespace": {
                     "type": "string"
                 },
+                "replicas": {
+                    "type": "integer"
+                },
                 "status": {
                     "type": "string"
                 },
@@ -2652,6 +2886,29 @@ var doc = `{
                 },
                 "namespace": {
                     "type": "string"
+                },
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+        "model.K8sPods": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
                 },
                 "status": {
                     "type": "string"
@@ -3080,6 +3337,7 @@ var doc = `{
                     "type": "integer"
                 },
 <<<<<<< HEAD
+<<<<<<< HEAD
                 "path": {
                     "type": "string"
                 },
@@ -3096,6 +3354,11 @@ var doc = `{
                 },
                 "uuid": {
 =======
+=======
+                "replicas": {
+                    "type": "integer"
+                },
+>>>>>>> develop
                 "status": {
                     "type": "string"
                 },
@@ -3149,6 +3412,32 @@ var doc = `{
                 },
                 "value": {
 =======
+                "status": {
+                    "type": "string"
+                },
+                "time": {
+                    "type": "string"
+                },
+                "updatedAt": {
+                    "type": "string"
+                }
+            }
+        },
+        "request.K8sPodsSearch": {
+            "type": "object",
+            "properties": {
+                "createdAt": {
+                    "type": "string"
+                },
+                "id": {
+                    "type": "integer"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "pageSize": {
+                    "type": "integer"
+                },
                 "status": {
                     "type": "string"
                 },

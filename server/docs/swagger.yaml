@@ -220,6 +220,8 @@ definitions:
         type: integer
       namespace:
         type: string
+      replicas:
+        type: integer
       status:
         type: string
       time:
@@ -235,6 +237,22 @@ definitions:
         type: integer
       namespace:
         type: string
+      status:
+        type: string
+      time:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+  model.K8sPods:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
       status:
         type: string
       time:
@@ -483,6 +501,8 @@ definitions:
         type: integer
       pageSize:
         type: integer
+      replicas:
+        type: integer
       status:
         type: string
       time:
@@ -498,6 +518,26 @@ definitions:
         type: integer
       namespace:
         type: string
+      page:
+        type: integer
+      pageSize:
+        type: integer
+      status:
+        type: string
+      time:
+        type: string
+      updatedAt:
+        type: string
+    type: object
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+  request.K8sPodsSearch:
+    properties:
+      createdAt:
+        type: string
+      id:
+        type: integer
       page:
         type: integer
       pageSize:
@@ -1525,6 +1565,144 @@ paths:
       summary: 分页获取K8sNamespaces列表
       tags:
       - K8sNamespaces
+  /k8sPods/createK8sPods:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建K8sPods
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sPods'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建K8sPods
+      tags:
+      - K8sPods
+  /k8sPods/deleteK8sPods:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 删除K8sPods
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sPods'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除K8sPods
+      tags:
+      - K8sPods
+  /k8sPods/deleteK8sPodsByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 批量删除K8sPods
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除K8sPods
+      tags:
+      - K8sPods
+  /k8sPods/findK8sPods:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 用id查询K8sPods
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sPods'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"查询成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 用id查询K8sPods
+      tags:
+      - K8sPods
+  /k8sPods/getK8sPodsList:
+    get:
+      consumes:
+      - application/json
+      parameters:
+      - description: 分页获取K8sPods列表
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.K8sPodsSearch'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 分页获取K8sPods列表
+      tags:
+      - K8sPods
+  /k8sPods/updateK8sPods:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新K8sPods
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sPods'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新K8sPods
+      tags:
+      - K8sPods
   /menu/GetMenuAuthority:
     post:
       consumes:
