@@ -1,9 +1,9 @@
 # 项目介绍
-本项目基于优秀的[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端框架开发(特别感谢!)，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
+本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端框架开发(特别感谢!)，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
 
 ## 技术栈
-- 前端框架：[element-ui](https://github.com/ElemeFE/element)、[Vue](https://cn.vuejs.org/)
-- 后台框架：[gin](https://github.com/gin-gonic/gin) 
+- 前端框架：[Element-ui](https://github.com/ElemeFE/element)、[Vue](https://cn.vuejs.org/)
+- 后台框架：[Gin](https://github.com/gin-gonic/gin) 
 
 # 部署使用
 
@@ -11,7 +11,6 @@
 - node版本 > v8.6.0
 - golang版本 >= v1.14
 - IDE推荐：Goland
-- 请替换掉项目中的七牛云公钥，私钥，仓名和默认url地址，以免发生测试文件数据错乱
 ```
 
 ## 启动Server端
