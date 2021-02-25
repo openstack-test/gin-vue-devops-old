@@ -15,7 +15,7 @@
                 <el-button @click="deleteVisible = false" size="mini" type="text">取消</el-button>
                 <el-button @click="onDelete" size="mini" type="primary">确定</el-button>
               </div>
-            <el-button icon="el-icon-delete" size="mini" slot="reference" type="danger">删除</el-button>
+            <el-button icon="el-icon-delete" size="mini" slot="reference" type="danger">批量删除</el-button>
           </el-popover>
         </el-form-item>
       </el-form>
@@ -35,7 +35,7 @@
     
     <el-table-column label="实例数" prop="replicas" width="200"></el-table-column>
     
-    <el-table-column label="创建时间" prop="time" width="200"></el-table-column> 
+    <el-table-column label="创建时间" prop="createTime" width="200"></el-table-column> 
     <el-table-column label="容器列表" prop="pod" width="200">
     <template slot-scope="scope">
     <el-button

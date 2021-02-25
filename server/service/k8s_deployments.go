@@ -16,7 +16,7 @@ type DeploymentResult struct {
 	Namespace  string            `json:"namespace"`
 	Deployment string            `json:"deployment"`
 	Replicas   int32             `json:"replicas"`
-	Time       metav1.Time       `json:"time"`
+	CreateTime string            `json:"createTime"`
 }
 
 //@function: CreateK8sDeployment
@@ -82,18 +82,22 @@ func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch
 	}
 
 	//获取指定namespace的deployments
-	deployment, err := clientset.AppsV1().Deployments(namespace).List(context.TODO(), metav1.ListOptions{})
+	deployments, err := clientset.AppsV1().Deployments(namespace).List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		log.Fatalln(err)
 	}
 
-	for key, deployments := range deployment.Items {
+	for key, deployment := range deployments.Items {
+		createTime := deployment.ObjectMeta.CreationTimestamp.Time
+		// 将time.Time类型转成指定格式字符串
+		formatTime := createTime.Format("2006-01-02 15:04:05")
+
 		res := &DeploymentResult{
 			ID: key,
 			Namespace:  namespace,
-			Deployment: deployments.ObjectMeta.Name,
-			Replicas:   deployments.Status.ReadyReplicas,
-			Time:       deployments.ObjectMeta.CreationTimestamp,
+			Deployment: deployment.ObjectMeta.Name,
+			Replicas:   deployment.Status.ReadyReplicas,
+			CreateTime: formatTime,
 		}
 		list = append(list, res)
 	}

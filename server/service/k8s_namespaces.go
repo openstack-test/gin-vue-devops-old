@@ -16,7 +16,7 @@ type Result struct {
 	ID        int               `json:"id"`
 	Namespace string            `json:"namespace"`
 	Status    v1.NamespacePhase `json:"status"`
-	Time      metav1.Time       `json:"time"`
+	CreateTime    string       `json:"createTime"`
 }
 
 //@function: GetK8sNamespaces
@@ -39,16 +39,20 @@ func GetK8sNamespacesList(info request.K8sNamespacesSearch) (err error, list []*
 		log.Fatalln(err)
 	}
 	// 获取所有Namespaces
-	ns, err := clientset.CoreV1().Namespaces().List(context.TODO(), metav1.ListOptions{})
+	namespaces, err := clientset.CoreV1().Namespaces().List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		log.Fatalln(err)
 	}
-	for key, nss := range ns.Items {
+	for key, ns := range namespaces.Items {
+		creatTime := ns.CreationTimestamp.Time
+		// 将time.Time类型转成指定格式字符串
+		formatTime := creatTime.Format("2006-01-02 15:04:05")
+
 		res := &Result{
 			ID:        key,
-			Namespace: nss.Name,
-			Status:    nss.Status.Phase,
-			Time:      nss.CreationTimestamp,
+			Namespace: ns.Name,
+			Status:    ns.Status.Phase,
+			CreateTime:      formatTime,
 		}
 		list = append(list, res)
 	}
