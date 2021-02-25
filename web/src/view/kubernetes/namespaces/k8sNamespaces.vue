@@ -18,7 +18,7 @@
     
     <el-table-column label="运行状态" prop="status" width="200"></el-table-column> 
     
-    <el-table-column label="创建时间" prop="time" width="200"></el-table-column> 
+    <el-table-column label="创建时间" prop="createTime" width="200"></el-table-column> 
 	<el-table-column label="应用列表" prop="application">
     <template slot-scope="scope">
     <el-button

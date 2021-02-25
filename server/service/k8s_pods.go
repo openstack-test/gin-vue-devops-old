@@ -9,7 +9,6 @@ import (
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"log"
-	"time"
 )
 
 // 定义结构体绑定数据
@@ -18,8 +17,8 @@ type PodResult struct {
 	PodName      string            `json:"podName"`
 	PodIP        string            `json:"podIP"`
 	HostIP       string            `json:"hostIP"`
-	Status       v1.PodPhase      `json:"status"`
-	StartTime    time.Time         `json:"startTime"`
+	Status       v1.PodPhase       `json:"status"`
+	StartTime    string            `json:"startTime"`
 	RestartCount int32             `json:"restartCount"`
 }
 
@@ -89,15 +88,19 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 		panic(err.Error())
 	}
 
-	for key, pods := range podList.Items {
+	for key, pod := range podList.Items {
+		startTime := pod.Status.StartTime.Time
+		// 将time.Time类型转成指定格式字符串
+		formatTime := startTime.Format("2006-01-02 15:04:05")
+
 		res := &PodResult{
 			ID: key,
-			PodName: pods.ObjectMeta.Name,
-			PodIP: pods.Status.PodIP,
-			HostIP: pods.Status.HostIP,
-			Status: pods.Status.Phase,
-			StartTime: pods.Status.StartTime.Time,
-			RestartCount: pods.Status.ContainerStatuses[0].RestartCount,
+			PodName: pod.ObjectMeta.Name,
+			PodIP: pod.Status.PodIP,
+			HostIP: pod.Status.HostIP,
+			Status: pod.Status.Phase,
+			StartTime: formatTime,
+			RestartCount: pod.Status.ContainerStatuses[0].RestartCount,
 		}
 		list = append(list, res)
 	}

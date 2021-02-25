@@ -5,16 +5,6 @@
         <el-form-item>
           <el-button @click="onSubmit" type="primary">查询</el-button>
         </el-form-item>
-        <el-form-item>
-          <el-popover placement="top" v-model="deleteVisible" width="160">
-            <p>确定要删除吗？</p>
-              <div style="text-align: right; margin: 0">
-                <el-button @click="deleteVisible = false" size="mini" type="text">取消</el-button>
-                <el-button @click="onDelete" size="mini" type="primary">确定</el-button>
-              </div>
-            <el-button icon="el-icon-delete" size="mini" slot="reference" type="danger">批量删除</el-button>
-          </el-popover>
-        </el-form-item>
       </el-form>
     </div>
     <el-table
@@ -37,14 +27,15 @@
     
       <el-table-column label="操作">
         <template slot-scope="scope">
-          <el-button class="table-button" @click="updateK8sPods(scope.row)" size="small" type="primary" icon="el-icon-edit">变更</el-button>
+          <el-button class="table-button" @click="updateK8sPods(scope.row)" size="small" type="primary" icon="el-icon-edit">查看日志</el-button>
+          <el-button class="table-button" @click="updateK8sPods(scope.row)" size="small" type="primary" icon="el-icon-s-promotion">进入容器</el-button>
           <el-popover placement="top" width="160" v-model="scope.row.visible">
-            <p>确定要删除吗？</p>
+            <p>确定要重启吗？</p>
             <div style="text-align: right; margin: 0">
               <el-button size="mini" type="text" @click="scope.row.visible = false">取消</el-button>
               <el-button type="primary" size="mini" @click="deleteK8sPods(scope.row)">确定</el-button>
             </div>
-            <el-button type="danger" icon="el-icon-delete" size="mini" slot="reference">删除</el-button>
+            <el-button type="danger" icon="el-icon-warning" size="mini" slot="reference">重启</el-button>
           </el-popover>
         </template>
       </el-table-column>
