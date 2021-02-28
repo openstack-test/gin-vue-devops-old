@@ -45,6 +45,7 @@ func Routers() *gin.Engine {
 		router.InitK8sNamespacesRouter(PrivateGroup)         // k8s命名空间路由
 		router.InitK8sDeploymentRouter(PrivateGroup)         // k8s应用路由
 		router.InitK8sPodsRouter(PrivateGroup)               // k8s pod路由
+		router.InitK8sClusterRouter(PrivateGroup)            // k8s cluster路由
 	}
 	global.GVA_LOG.Info("router register success")
 	return Router
