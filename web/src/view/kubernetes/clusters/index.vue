@@ -6,7 +6,7 @@
           <el-button @click="onSubmit" type="primary">查询</el-button>
         </el-form-item>
         <el-form-item>
-          <el-button @click="openDialog" type="primary">创建</el-button>
+          <el-button @click="openDialog" type="primary">注册</el-button>
         </el-form-item>
         <el-form-item>
           <el-popover placement="top" v-model="deleteVisible" width="160">
@@ -20,6 +20,7 @@
         </el-form-item>
       </el-form>
     </div>
+    
     <el-table
       :data="tableData"
       @selection-change="handleSelectionChange"
@@ -28,16 +29,24 @@
       stripe
       style="width: 100%"
       tooltip-effect="dark"
+      :row-style="{height:40+'px'}"
+      :cell-style="{padding:0+'px'}"
     >
     <el-table-column type="selection" width="55"></el-table-column>
     
-    <el-table-column label="ID" prop="id" width="120"></el-table-column> 
+    <el-table-column label="ID" prop="id" width="100"></el-table-column> 
     
-    <el-table-column label="集群名称" prop="clusterName" width="120"></el-table-column> 
+    <el-table-column label="集群名称" prop="clusterName" width="150"></el-table-column> 
     
-    <el-table-column label="config文件" prop="kubeConfig" width="120"></el-table-column> 
+    <el-table-column label="Kubeconfig内容" prop="kubeConfig" width="400" show-overflow-tooltip>
+      <template slot-scope="scope">
+         <el-popover width="900" placement="top-start" trigger="hover" :content="scope.row.kubeConfig">
+           <span slot="reference" class="btn">{{ scope.row.kubeConfig }}</span>
+         </el-popover>
+     </template>
+    </el-table-column> 
     
-    <el-table-column label="集群版本" prop="clusterVersion" width="120"></el-table-column> 
+    <el-table-column label="集群版本" prop="clusterVersion" width="100"></el-table-column> 
     
       <el-table-column label="操作">
         <template slot-scope="scope">
@@ -65,17 +74,16 @@
       layout="total, sizes, prev, pager, next, jumper"
     ></el-pagination>
 
-    <el-dialog :before-close="closeDialog" :visible.sync="dialogFormVisible" title="弹窗操作">
+    <el-dialog :before-close="closeDialog" :visible.sync="dialogFormVisible" title="创建集群">
       <el-form :model="formData" label-position="right" label-width="80px">
-         <el-form-item label="ID:"><el-input v-model.number="formData.id" clearable placeholder="请输入"></el-input>
-      </el-form-item>
        
          <el-form-item label="集群名称:">
-            <el-input v-model="formData.clusterName" clearable placeholder="请输入" ></el-input>
+            <el-input v-model="formData.clusterName" clearable placeholder="请输入集群名称" ></el-input>
       </el-form-item>
        
-         <el-form-item label="config文件:">
-            <el-input v-model="formData.kubeConfig" clearable placeholder="请输入" ></el-input>
+         <el-form-item label="kubconfig:">
+            <el-input v-model="formData.KubeConfig" type="textarea" placeholder="请输入KubeConfig文件内容"
+          :autosize="{minRows: 4, maxRows: 4}" :style="{width: '100%'}"></el-input>
       </el-form-item>
        
        </el-form>
@@ -95,7 +103,7 @@ import {
     updateK8sCluster,
     findK8sCluster,
     getK8sClusterList
-} from "@/api/k8sCluster";  //  此处请自行替换地址
+} from "@/api/k8sCluster";
 import { formatTimeToStr } from "@/utils/date";
 import infoList from "@/mixins/infoList";
 export default {
