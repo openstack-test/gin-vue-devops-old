@@ -1,8 +1,8 @@
 package initialize
 
 import (
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
 	"os"
 
 	"go.uber.org/zap"
@@ -11,7 +11,6 @@ import (
 	"gorm.io/gorm/logger"
 )
 
-//@author: SliverHorn
 //@function: Gorm
 //@description: 初始化数据库并产生数据库全局变量
 //@return: *gorm.DB
@@ -26,7 +25,6 @@ func Gorm() *gorm.DB {
 }
 
 // MysqlTables
-//@author: SliverHorn
 //@function: MysqlTables
 //@description: 注册数据库表专用
 //@param: db *gorm.DB
@@ -49,6 +47,11 @@ func MysqlTables(db *gorm.DB) {
 		model.ExaWfLeave{},
 		model.K8sNamespaces{},
 		model.K8sDeployment{},
+<<<<<<< HEAD
+>>>>>>> develop
+=======
+		model.K8sPods{},
+		model.K8sCluster{},
 >>>>>>> develop
 	)
 	if err != nil {
@@ -58,8 +61,6 @@ func MysqlTables(db *gorm.DB) {
 	global.GVA_LOG.Info("register table success")
 }
 
-//
-//@author: SliverHorn
 //@function: GormMysql
 //@description: 初始化Mysql数据库
 //@return: *gorm.DB
@@ -87,7 +88,6 @@ func GormMysql() *gorm.DB {
 	}
 }
 
-//@author: SliverHorn
 //@function: gormConfig
 //@description: 根据配置决定是否开启日志
 //@param: mod bool

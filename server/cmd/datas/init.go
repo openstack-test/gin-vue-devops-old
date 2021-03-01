@@ -1,7 +1,7 @@
 package datas
 
 import (
-	"gin-vue-admin/model"
+	"gin-vue-devops/model"
 	"os"
 
 	gormadapter "github.com/casbin/gorm-adapter/v3"

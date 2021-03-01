@@ -3,12 +3,13 @@
 package utils
 
 import (
-	"gin-vue-admin/global"
-	zaprotatelogs "github.com/lestrrat-go/file-rotatelogs"
-	"go.uber.org/zap/zapcore"
+	"gin-vue-devops/global"
 	"os"
 	"path"
 	"time"
+
+	zaprotatelogs "github.com/lestrrat-go/file-rotatelogs"
+	"go.uber.org/zap/zapcore"
 )
 
 //@function: GetWriteSyncer

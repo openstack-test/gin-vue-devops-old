@@ -66,7 +66,7 @@ make initdb
 go list (go mod tidy)
 
 # 编译
-go build -o gin-vue-devops
+go build
 
 # 启动服务
 ./gin-vue-devops
@@ -172,10 +172,3 @@ swag init
 - [ ] 完善Kubernetes资源对象管理
 - [ ] 应用创建、回滚、查询、进入容器等
 - [ ] 其他
-
-
-
-
-
-
-

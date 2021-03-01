@@ -1,7 +1,7 @@
 package service
 
 import (
-	"gin-vue-admin/utils"
+	"gin-vue-devops/utils"
 )
 
 //@function: EmailTest

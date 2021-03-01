@@ -1,8 +1,9 @@
 package model
 
 import (
-	"gin-vue-admin/global"
-	"github.com/satori/go.uuid"
+	"gin-vue-devops/global"
+
+	uuid "github.com/satori/go.uuid"
 )
 
 type SysUser struct {

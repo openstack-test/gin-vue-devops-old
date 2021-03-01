@@ -3,14 +3,15 @@ package initialize
 import (
 	"context"
 	"fmt"
-	"gin-vue-admin/global"
-	"go.uber.org/zap"
-	"gorm.io/gorm/logger"
-	"gorm.io/gorm/utils"
+	"gin-vue-devops/global"
 	"io/ioutil"
 	"log"
 	"os"
 	"time"
+
+	"go.uber.org/zap"
+	"gorm.io/gorm/logger"
+	"gorm.io/gorm/utils"
 )
 
 var (

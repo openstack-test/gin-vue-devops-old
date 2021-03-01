@@ -1,10 +1,10 @@
 package initialize
 
 import (
-	_ "gin-vue-admin/docs"
-	"gin-vue-admin/global"
-	"gin-vue-admin/middleware"
-	"gin-vue-admin/router"
+	_ "gin-vue-devops/docs"
+	"gin-vue-devops/global"
+	"gin-vue-devops/middleware"
+	"gin-vue-devops/router"
 	"net/http"
 
 	"github.com/gin-gonic/gin"
@@ -47,9 +47,16 @@ func Routers() *gin.Engine {
 		router.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
 =======
 		router.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
+<<<<<<< HEAD
 		router.InitK8sNamespacesRouter(PrivateGroup)         // k8s命名空间路由
 		router.InitK8sDeploymentRouter(PrivateGroup)         // k8s应用路由
 		router.InitK8sPodsRouter(PrivateGroup)               // k8s pod路由
+>>>>>>> develop
+=======
+		router.InitK8sNamespacesRouter(PrivateGroup)         // k8s命名空间管理路由
+		router.InitK8sDeploymentRouter(PrivateGroup)         // k8s应用管理路由
+		router.InitK8sPodsRouter(PrivateGroup)               // k8s容器管理路由
+		router.InitK8sClusterRouter(PrivateGroup)            // k8s集群管理路由
 >>>>>>> develop
 	}
 	global.GVA_LOG.Info("router register success")

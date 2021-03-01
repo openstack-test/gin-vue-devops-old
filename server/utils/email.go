@@ -6,7 +6,7 @@ import (
 	"net/smtp"
 	"strings"
 
-	"gin-vue-admin/global"
+	"gin-vue-devops/global"
 
 	"github.com/jordan-wright/email"
 )

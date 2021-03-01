@@ -16,14 +16,14 @@ limitations under the License.
 package gva
 
 import (
-	"gin-vue-admin/cmd/datas"
-	"gin-vue-admin/core"
-	"gin-vue-admin/initialize"
+	"gin-vue-devops/cmd/datas"
+	"gin-vue-devops/core"
+	"gin-vue-devops/initialize"
 
 	"github.com/gookit/color"
 
-	_ "gin-vue-admin/core"
-	"gin-vue-admin/global"
+	_ "gin-vue-devops/core"
+	"gin-vue-devops/global"
 
 	"github.com/spf13/cobra"
 )
@@ -31,16 +31,14 @@ import (
 // initdbCmd represents the initdb command
 var initdbCmd = &cobra.Command{
 	Use:   "initdb",
-	Short: "gin-vue-admin初始化数据",
-	Long: `gin-vue-admin初始化数据适配数据库情况: 
+	Short: "gin-vue-devops初始化数据",
+	Long: `gin-vue-devops初始化数据适配数据库情况: 
 1. mysql完美适配,
-2. postgresql不能保证完美适配,
-3. sqlite未适配,
-4. sqlserver未适配`,
+2. postgresql不能保证完美适配`,
 	Run: func(cmd *cobra.Command, args []string) {
 		path, _ := cmd.Flags().GetString("path")
 		global.GVA_VP = core.Viper(path)
-		global.GVA_LOG = core.Zap()           // 初始化zap日志库
+		global.GVA_LOG = core.Zap() // 初始化zap日志库
 		db := initialize.GormMysql()
 		switch global.GVA_CONFIG.System.DbType {
 		case "mysql":
@@ -48,10 +46,6 @@ var initdbCmd = &cobra.Command{
 			datas.InitMysqlData(db)
 		case "postgresql":
 			color.Info.Println("postgresql功能开发中")
-		case "sqlite":
-			color.Info.Println("sqlite功能开发中")
-		case "sqlserver":
-			color.Info.Println("sqlserver功能开发中")
 		default:
 			datas.InitMysqlTables(db)
 			datas.InitMysqlData(db)

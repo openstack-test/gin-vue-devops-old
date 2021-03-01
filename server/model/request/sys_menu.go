@@ -1,6 +1,6 @@
 package request
 
-import "gin-vue-admin/model"
+import "gin-vue-devops/model"
 
 // Add menu authority info structure
 type AddMenuAuthorityInfo struct {

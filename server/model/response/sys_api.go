@@ -1,6 +1,6 @@
 package response
 
-import "gin-vue-admin/model"
+import "gin-vue-devops/model"
 
 type SysAPIResponse struct {
 	Api model.SysApi `json:"api"`

@@ -3,12 +3,13 @@ package core
 import (
 	"flag"
 	"fmt"
-	"gin-vue-admin/global"
-	_ "gin-vue-admin/packfile"
-	"gin-vue-admin/utils"
+	"gin-vue-devops/global"
+	_ "gin-vue-devops/packfile"
+	"gin-vue-devops/utils"
+	"os"
+
 	"github.com/fsnotify/fsnotify"
 	"github.com/spf13/viper"
-	"os"
 )
 
 func Viper(path ...string) *viper.Viper {

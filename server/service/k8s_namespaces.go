@@ -2,21 +2,22 @@ package service
 
 import (
 	"context"
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
-	"gin-vue-admin/utils"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/utils"
+	"log"
+
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"log"
 )
 
 // 定义结构体绑定数据
 type Result struct {
-	ID        int               `json:"id"`
-	Namespace string            `json:"namespace"`
-	Status    v1.NamespacePhase `json:"status"`
-	CreateTime    string       `json:"createTime"`
+	ID         int               `json:"id"`
+	Namespace  string            `json:"namespace"`
+	Status     v1.NamespacePhase `json:"status"`
+	CreateTime string            `json:"createTime"`
 }
 
 //@function: GetK8sNamespaces
@@ -49,10 +50,10 @@ func GetK8sNamespacesList(info request.K8sNamespacesSearch) (err error, list []*
 		formatTime := creatTime.Format("2006-01-02 15:04:05")
 
 		res := &Result{
-			ID:        key,
-			Namespace: ns.Name,
-			Status:    ns.Status.Phase,
-			CreateTime:      formatTime,
+			ID:         key,
+			Namespace:  ns.Name,
+			Status:     ns.Status.Phase,
+			CreateTime: formatTime,
 		}
 		list = append(list, res)
 	}

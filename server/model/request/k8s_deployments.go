@@ -1,8 +1,8 @@
 package request
 
-import "gin-vue-admin/model"
+import "gin-vue-devops/model"
 
-type K8sDeploymentSearch struct{
-    model.K8sDeployment
-    PageInfo
+type K8sDeploymentSearch struct {
+	model.K8sDeployment
+	PageInfo
 }
