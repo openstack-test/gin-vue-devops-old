@@ -1,9 +1,9 @@
 package service
 
 import (
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
 )
 
 //@function: CreateK8sCluster

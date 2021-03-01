@@ -2,24 +2,25 @@ package service
 
 import (
 	"context"
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
-	"gin-vue-admin/utils"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/utils"
+	"log"
+
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
-	"log"
 )
 
 // 定义结构体绑定数据
 type PodResult struct {
-	ID           int               `json:"id"`
-	PodName      string            `json:"podName"`
-	PodIP        string            `json:"podIP"`
-	HostIP       string            `json:"hostIP"`
-	Status       v1.PodPhase       `json:"status"`
-	StartTime    string            `json:"startTime"`
-	RestartCount int32             `json:"restartCount"`
+	ID           int         `json:"id"`
+	PodName      string      `json:"podName"`
+	PodIP        string      `json:"podIP"`
+	HostIP       string      `json:"hostIP"`
+	Status       v1.PodPhase `json:"status"`
+	StartTime    string      `json:"startTime"`
+	RestartCount int32       `json:"restartCount"`
 }
 
 //@function: CreateK8sPods
@@ -48,7 +49,7 @@ func DeleteK8sPods(k8sPods model.K8sPods) (err error) {
 //@return: err error
 
 func DeleteK8sPodsByIds(ids request.IdsReq) (err error) {
-	err = global.GVA_DB.Delete(&[]model.K8sPods{},"id in ?",ids.Ids).Error
+	err = global.GVA_DB.Delete(&[]model.K8sPods{}, "id in ?", ids.Ids).Error
 	return err
 }
 
@@ -82,7 +83,7 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 	if err != nil {
 		log.Fatalln(err)
 	}
-    namespace = "app"
+	namespace = "app"
 	podList, err := clientset.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
 		panic(err.Error())
@@ -94,12 +95,12 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 		formatTime := startTime.Format("2006-01-02 15:04:05")
 
 		res := &PodResult{
-			ID: key,
-			PodName: pod.ObjectMeta.Name,
-			PodIP: pod.Status.PodIP,
-			HostIP: pod.Status.HostIP,
-			Status: pod.Status.Phase,
-			StartTime: formatTime,
+			ID:           key,
+			PodName:      pod.ObjectMeta.Name,
+			PodIP:        pod.Status.PodIP,
+			HostIP:       pod.Status.HostIP,
+			Status:       pod.Status.Phase,
+			StartTime:    formatTime,
 			RestartCount: pod.Status.ContainerStatuses[0].RestartCount,
 		}
 		list = append(list, res)

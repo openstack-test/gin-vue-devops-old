@@ -1,8 +1,8 @@
 package request
 
-import "gin-vue-admin/model"
+import "gin-vue-devops/model"
 
-type K8sClusterSearch struct{
-    model.K8sCluster
-    PageInfo
+type K8sClusterSearch struct {
+	model.K8sCluster
+	PageInfo
 }

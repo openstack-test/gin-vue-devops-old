@@ -1,7 +1,7 @@
 package model
 
 import (
-	"gin-vue-admin/global"
+	"gin-vue-devops/global"
 )
 
 type SysApi struct {

@@ -1,6 +1,6 @@
 package response
 
-import "gin-vue-admin/config"
+import "gin-vue-devops/config"
 
 type SysConfigResponse struct {
 	Config config.Server `json:"config"`

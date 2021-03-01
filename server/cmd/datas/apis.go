@@ -1,8 +1,8 @@
 package datas
 
 import (
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
 	"os"
 	"time"
 

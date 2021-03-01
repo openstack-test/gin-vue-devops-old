@@ -1,10 +1,10 @@
 package initialize
 
 import (
-	_ "gin-vue-admin/docs"
-	"gin-vue-admin/global"
-	"gin-vue-admin/middleware"
-	"gin-vue-admin/router"
+	_ "gin-vue-devops/docs"
+	"gin-vue-devops/global"
+	"gin-vue-devops/middleware"
+	"gin-vue-devops/router"
 	"net/http"
 
 	"github.com/gin-gonic/gin"

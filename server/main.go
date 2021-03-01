@@ -1,9 +1,9 @@
 package main
 
 import (
-	"gin-vue-admin/core"
-	"gin-vue-admin/global"
-	"gin-vue-admin/initialize"
+	"gin-vue-devops/core"
+	"gin-vue-devops/global"
+	"gin-vue-devops/initialize"
 )
 
 // @title Swagger Example API

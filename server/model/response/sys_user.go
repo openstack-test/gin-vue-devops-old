@@ -1,7 +1,7 @@
 package response
 
 import (
-	"gin-vue-admin/model"
+	"gin-vue-devops/model"
 )
 
 type SysUserResponse struct {

@@ -2,21 +2,22 @@ package service
 
 import (
 	"context"
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
-	"gin-vue-admin/utils"
-	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/utils"
 	"log"
+
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
 // 定义结构体绑定数据
 type DeploymentResult struct {
-	ID int                       `json:"id"`
-	Namespace  string            `json:"namespace"`
-	Deployment string            `json:"deployment"`
-	Replicas   int32             `json:"replicas"`
-	CreateTime string            `json:"createTime"`
+	ID         int    `json:"id"`
+	Namespace  string `json:"namespace"`
+	Deployment string `json:"deployment"`
+	Replicas   int32  `json:"replicas"`
+	CreateTime string `json:"createTime"`
 }
 
 //@function: CreateK8sDeployment
@@ -93,7 +94,7 @@ func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch
 		formatTime := createTime.Format("2006-01-02 15:04:05")
 
 		res := &DeploymentResult{
-			ID: key,
+			ID:         key,
 			Namespace:  namespace,
 			Deployment: deployment.ObjectMeta.Name,
 			Replicas:   deployment.Status.ReadyReplicas,

@@ -66,7 +66,7 @@ make initdb
 go list (go mod tidy)
 
 # 编译
-go build -o gin-vue-devops
+go build
 
 # 启动服务
 ./gin-vue-devops

@@ -2,14 +2,14 @@ package service
 
 import (
 	"errors"
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
-	"gin-vue-admin/utils"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/utils"
+
 	uuid "github.com/satori/go.uuid"
 	"gorm.io/gorm"
 )
-
 
 //@function: Register
 //@description: 用户注册
@@ -116,7 +116,7 @@ func FindUserById(id int) (err error, user *model.SysUser) {
 
 func FindUserByUuid(uuid string) (err error, user *model.SysUser) {
 	var u model.SysUser
-	if err = global.GVA_DB.Where("`uuid` = ?", uuid).First(&u).Error; err != nil{
+	if err = global.GVA_DB.Where("`uuid` = ?", uuid).First(&u).Error; err != nil {
 		return errors.New("用户不存在"), &u
 	}
 	return nil, &u

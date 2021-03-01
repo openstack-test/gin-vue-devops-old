@@ -1,13 +1,13 @@
 package datas
 
 import (
-	"gin-vue-admin/global"
+	"gin-vue-devops/global"
 	"os"
 	"time"
 
 	"github.com/gookit/color"
 
-	"gin-vue-admin/model"
+	"gin-vue-devops/model"
 
 	"gorm.io/gorm"
 )

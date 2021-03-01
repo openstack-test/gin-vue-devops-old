@@ -1,13 +1,14 @@
 package v1
 
 import (
-	"gin-vue-admin/global"
-    "gin-vue-admin/model"
-    "gin-vue-admin/model/request"
-    "gin-vue-admin/model/response"
-    "gin-vue-admin/service"
-    "github.com/gin-gonic/gin"
-    "go.uber.org/zap"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/model/response"
+	"gin-vue-devops/service"
+
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 // @Tags K8sPods
@@ -22,7 +23,7 @@ func CreateK8sPods(c *gin.Context) {
 	var k8sPods model.K8sPods
 	_ = c.ShouldBindJSON(&k8sPods)
 	if err := service.CreateK8sPods(k8sPods); err != nil {
-        global.GVA_LOG.Error("创建失败!", zap.Any("err", err))
+		global.GVA_LOG.Error("创建失败!", zap.Any("err", err))
 		response.FailWithMessage("创建失败", c)
 	} else {
 		response.OkWithMessage("创建成功", c)
@@ -41,7 +42,7 @@ func DeleteK8sPods(c *gin.Context) {
 	var k8sPods model.K8sPods
 	_ = c.ShouldBindJSON(&k8sPods)
 	if err := service.DeleteK8sPods(k8sPods); err != nil {
-        global.GVA_LOG.Error("删除失败!", zap.Any("err", err))
+		global.GVA_LOG.Error("删除失败!", zap.Any("err", err))
 		response.FailWithMessage("删除失败", c)
 	} else {
 		response.OkWithMessage("删除成功", c)
@@ -58,9 +59,9 @@ func DeleteK8sPods(c *gin.Context) {
 // @Router /k8sPods/deleteK8sPodsByIds [delete]
 func DeleteK8sPodsByIds(c *gin.Context) {
 	var IDS request.IdsReq
-    _ = c.ShouldBindJSON(&IDS)
+	_ = c.ShouldBindJSON(&IDS)
 	if err := service.DeleteK8sPodsByIds(IDS); err != nil {
-        global.GVA_LOG.Error("批量删除失败!", zap.Any("err", err))
+		global.GVA_LOG.Error("批量删除失败!", zap.Any("err", err))
 		response.FailWithMessage("批量删除失败", c)
 	} else {
 		response.OkWithMessage("批量删除成功", c)
@@ -79,7 +80,7 @@ func UpdateK8sPods(c *gin.Context) {
 	var k8sPods model.K8sPods
 	_ = c.ShouldBindJSON(&k8sPods)
 	if err := service.UpdateK8sPods(k8sPods); err != nil {
-        global.GVA_LOG.Error("更新失败!", zap.Any("err", err))
+		global.GVA_LOG.Error("更新失败!", zap.Any("err", err))
 		response.FailWithMessage("更新失败", c)
 	} else {
 		response.OkWithMessage("更新成功", c)
@@ -98,7 +99,7 @@ func FindK8sPods(c *gin.Context) {
 	var k8sPods model.K8sPods
 	_ = c.ShouldBindQuery(&k8sPods)
 	if err, rek8sPods := service.GetK8sPods(k8sPods.ID); err != nil {
-        global.GVA_LOG.Error("查询失败!", zap.Any("err", err))
+		global.GVA_LOG.Error("查询失败!", zap.Any("err", err))
 		response.FailWithMessage("查询失败", c)
 	} else {
 		response.OkWithData(gin.H{"rek8sPods": rek8sPods}, c)
@@ -119,14 +120,14 @@ func GetK8sPodsList(c *gin.Context) {
 	namespace := c.Query("namespace")
 	//deployment := c.Query("deployment")
 	if err, list, total := service.GetK8sPodsInfoList(namespace, pageInfo); err != nil {
-	    global.GVA_LOG.Error("获取失败", zap.Any("err", err))
-        response.FailWithMessage("获取失败", c)
-    } else {
-        response.OkWithDetailed(response.PageResult{
-            List:     list,
-            Total:    total,
-            Page:     pageInfo.Page,
-            PageSize: pageInfo.PageSize,
-        }, "获取成功", c)
-    }
+		global.GVA_LOG.Error("获取失败", zap.Any("err", err))
+		response.FailWithMessage("获取失败", c)
+	} else {
+		response.OkWithDetailed(response.PageResult{
+			List:     list,
+			Total:    total,
+			Page:     pageInfo.Page,
+			PageSize: pageInfo.PageSize,
+		}, "获取成功", c)
+	}
 }

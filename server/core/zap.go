@@ -2,12 +2,13 @@ package core
 
 import (
 	"fmt"
-	"gin-vue-admin/global"
-	"gin-vue-admin/utils"
-	"go.uber.org/zap"
-	"go.uber.org/zap/zapcore"
+	"gin-vue-devops/global"
+	"gin-vue-devops/utils"
 	"os"
 	"time"
+
+	"go.uber.org/zap"
+	"go.uber.org/zap/zapcore"
 )
 
 var level zapcore.Level

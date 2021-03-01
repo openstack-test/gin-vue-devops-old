@@ -2,16 +2,17 @@ package middleware
 
 import (
 	"errors"
-	"gin-vue-admin/global"
-	"gin-vue-admin/model"
-	"gin-vue-admin/model/request"
-	"gin-vue-admin/model/response"
-	"gin-vue-admin/service"
+	"gin-vue-devops/global"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/model/response"
+	"gin-vue-devops/service"
+	"strconv"
+	"time"
+
 	"github.com/dgrijalva/jwt-go"
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-	"strconv"
-	"time"
 )
 
 func JWTAuth() gin.HandlerFunc {

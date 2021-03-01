@@ -1,4 +1,4 @@
-module gin-vue-admin
+module gin-vue-devops
 
 go 1.14
 
