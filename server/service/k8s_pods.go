@@ -8,20 +8,8 @@ import (
 	"gin-vue-devops/utils"
 	"log"
 
-	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
-
-// 定义结构体绑定数据
-type PodResult struct {
-	ID           int         `json:"id"`
-	PodName      string      `json:"podName"`
-	PodIP        string      `json:"podIP"`
-	HostIP       string      `json:"hostIP"`
-	Status       v1.PodPhase `json:"status"`
-	StartTime    string      `json:"startTime"`
-	RestartCount int32       `json:"restartCount"`
-}
 
 //@function: CreateK8sPods
 //@description: 创建K8sPods记录
@@ -76,8 +64,8 @@ func GetK8sPods(id uint) (err error, k8sPods model.K8sPods) {
 //@function: GetK8sPodsInfoList
 //@description: 分页获取K8sPods记录
 //@param: info request.K8sPodsSearch
-//@return: err error, list []*PodResult, total int64
-func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error, list []*PodResult, total int64) {
+//@return: err error, list []*model.K8sPods, total int64
+func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error, list []*model.K8sPods, total int64) {
 	// 初始化k8s客户端
 	clientset, err := utils.InitClient()
 	if err != nil {
@@ -94,7 +82,7 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 		// 将time.Time类型转成指定格式字符串
 		formatTime := startTime.Format("2006-01-02 15:04:05")
 
-		res := &PodResult{
+		res := &model.K8sPods{
 			ID:           key,
 			PodName:      pod.ObjectMeta.Name,
 			PodIP:        pod.Status.PodIP,

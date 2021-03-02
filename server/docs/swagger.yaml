@@ -1409,7 +1409,7 @@ paths:
       tags:
       - K8sNamespaces
   /k8sNamespaces/getK8sNamespacesList:
-    post:
+    get:
       consumes:
       - application/json
       parameters:

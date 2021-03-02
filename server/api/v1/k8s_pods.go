@@ -9,6 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
+    _ "k8s.io/api/core/v1"
 )
 
 // @Tags K8sPods
@@ -98,7 +99,7 @@ func UpdateK8sPods(c *gin.Context) {
 func FindK8sPods(c *gin.Context) {
 	var k8sPods model.K8sPods
 	_ = c.ShouldBindQuery(&k8sPods)
-	if err, rek8sPods := service.GetK8sPods(k8sPods.ID); err != nil {
+	if err, rek8sPods := service.GetK8sPods(uint(k8sPods.ID)); err != nil {
 		global.GVA_LOG.Error("查询失败!", zap.Any("err", err))
 		response.FailWithMessage("查询失败", c)
 	} else {

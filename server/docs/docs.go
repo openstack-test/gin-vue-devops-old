@@ -1376,7 +1376,7 @@ var doc = `{
             }
         },
         "/k8sNamespaces/getK8sNamespacesList": {
-            "post": {
+            "get": {
                 "security": [
                     {
                         "ApiKeyAuth": []

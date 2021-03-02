@@ -6,34 +6,66 @@ import (
 	"gin-vue-devops/model"
 	"gin-vue-devops/model/request"
 	"gin-vue-devops/utils"
-	"log"
-
-	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
+	"log"
 )
 
-// 定义结构体绑定数据
-type Result struct {
-	ID         int               `json:"id"`
-	Namespace  string            `json:"namespace"`
-	Status     v1.NamespacePhase `json:"status"`
-	CreateTime string            `json:"createTime"`
+//@function: CreateK8sNamespaces
+//@description: 创建K8sNamespaces记录
+//@param: k8sNamespaces model.K8sNamespaces
+//@return: err error
+
+func CreateK8sNamespaces(k8sNamespaces model.K8sNamespaces) (err error) {
+	err = global.GVA_DB.Create(&k8sNamespaces).Error
+	return err
+}
+
+//@function: DeleteK8sNamespaces
+//@description: 删除K8sNamespaces记录
+//@param: k8sNamespaces model.K8sNamespaces
+//@return: err error
+
+func DeleteK8sNamespaces(k8sNamespaces model.K8sNamespaces) (err error) {
+	err = global.GVA_DB.Delete(k8sNamespaces).Error
+	return err
+}
+
+//@function: DeleteK8sNamespacesByIds
+//@description: 批量删除K8sNamespaces记录
+//@param: ids request.IdsReq
+//@return: err error
+
+func DeleteK8sNamespacesByIds(ids request.IdsReq) (err error) {
+	err = global.GVA_DB.Delete(&[]model.K8sNamespaces{},"id in ?",ids.Ids).Error
+	return err
+}
+
+//@function: UpdateK8sNamespaces
+//@description: 更新K8sNamespaces记录
+//@param: k8sNamespaces *model.K8sNamespaces
+//@return: err error
+
+func UpdateK8sNamespaces(k8sNamespaces model.K8sNamespaces) (err error) {
+	err = global.GVA_DB.Save(&k8sNamespaces).Error
+	return err
 }
 
 //@function: GetK8sNamespaces
 //@description: 根据id获取K8sNamespaces记录
 //@param: id uint
 //@return: err error, k8sNamespaces model.K8sNamespaces
-func FindK8sNamespaces(id uint) (err error, k8sNamespaces model.K8sNamespaces) {
+
+func GetK8sNamespaces(id uint) (err error, k8sNamespaces model.K8sNamespaces) {
 	err = global.GVA_DB.Where("id = ?", id).First(&k8sNamespaces).Error
 	return
 }
 
-//@function: GetK8sNamespacesList
+//@function: GetK8sNamespacesInfoList
 //@description: 分页获取K8sNamespaces记录
 //@param: info request.K8sNamespacesSearch
-//@return: err error, list []*Result, total int64
-func GetK8sNamespacesList(info request.K8sNamespacesSearch) (err error, list []*Result, total int64) {
+//@return: err error, list []*model.K8sNamespaces, total int64
+
+func GetK8sNamespacesInfoList(info request.K8sNamespacesSearch) (err error, list []*model.K8sNamespaces, total int64) {
 	// 初始化k8s客户端
 	clientset, err := utils.InitClient()
 	if err != nil {
@@ -49,7 +81,7 @@ func GetK8sNamespacesList(info request.K8sNamespacesSearch) (err error, list []*
 		// 将time.Time类型转成指定格式字符串
 		formatTime := creatTime.Format("2006-01-02 15:04:05")
 
-		res := &Result{
+		res := &model.K8sNamespaces{
 			ID:         key,
 			Namespace:  ns.Name,
 			Status:     ns.Status.Phase,

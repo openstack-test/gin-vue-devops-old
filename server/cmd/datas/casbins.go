@@ -55,7 +55,7 @@ var Carbines = []gormadapter.CasbinRule{
 	{PType: "p", V0: "888", V1: "/k8sCluster/createK8sCluster", V2: "POST"},
 	{PType: "p", V0: "888", V1: "/k8sCluster/getK8sClusterList", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/k8sNamespaces/findK8sNamespaces", V2: "GET"},
-	{PType: "p", V0: "888", V1: "/k8sNamespaces/getK8sNamespacesList", V2: "POST"},
+	{PType: "p", V0: "888", V1: "/k8sNamespaces/getK8sNamespacesList", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/k8sDeployments/getK8sDeploymentList", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/k8sPods/getK8sPodsList", V2: "GET"},
 	{PType: "p", V0: "8881", V1: "/base/login", V2: "POST"},

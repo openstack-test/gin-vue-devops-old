@@ -23,7 +23,7 @@
     <el-table-column label="主机IP" prop="hostIP" width="200"></el-table-column>
     <el-table-column label="状态" prop="status" width="150"></el-table-column> 
     <el-table-column label="启动时间" prop="startTime" width="200"></el-table-column>   
-    <el-table-column label="重启次数" prop="restartCount" width="150"></el-table-column> 
+    <el-table-column label="重启次数" prop="restartCount" width="100"></el-table-column> 
     
       <el-table-column label="操作">
         <template slot-scope="scope">
