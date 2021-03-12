@@ -11,15 +11,6 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-// 定义结构体绑定数据
-type DeploymentResult struct {
-	ID         int    `json:"id"`
-	Namespace  string `json:"namespace"`
-	Deployment string `json:"deployment"`
-	Replicas   int32  `json:"replicas"`
-	CreateTime string `json:"createTime"`
-}
-
 //@function: CreateK8sDeployment
 //@description: 创建K8sDeployment记录
 //@param: k8sDeployments model.K8sDeployment
@@ -73,9 +64,9 @@ func GetK8sDeployment(id uint) (err error, k8sDeployments model.K8sDeployment) {
 //@function: GetK8sDeploymentInfoList
 //@description: 分页获取K8sDeployment记录
 //@param: info request.K8sDeploymentSearch
-//@return: err error, list []*DeploymentResult, total int64
+//@return: err error, list []*model.K8sDeployment, total int64
 
-func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch) (err error, list []*DeploymentResult, total int64) {
+func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch) (err error, list []*model.K8sDeployment, total int64) {
 	//初始化k8s客户端
 	clientset, err := utils.InitClient()
 	if err != nil {
@@ -93,7 +84,7 @@ func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch
 		// 将time.Time类型转成指定格式字符串
 		formatTime := createTime.Format("2006-01-02 15:04:05")
 
-		res := &DeploymentResult{
+		res := &model.K8sDeployment{
 			ID:         key,
 			Namespace:  namespace,
 			Deployment: deployment.ObjectMeta.Name,

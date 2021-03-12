@@ -1594,8 +1594,12 @@ var doc = `{
         "/sysDictionary/createSysDictionary": {
 =======
         "/k8sNamespaces/getK8sNamespacesList": {
+<<<<<<< HEAD
 >>>>>>> develop
             "post": {
+=======
+            "get": {
+>>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []

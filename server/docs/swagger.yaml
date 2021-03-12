@@ -1694,8 +1694,12 @@ paths:
       tags:
       - K8sNamespaces
   /k8sNamespaces/getK8sNamespacesList:
+<<<<<<< HEAD
 >>>>>>> develop
     post:
+=======
+    get:
+>>>>>>> develop
       consumes:
       - application/json
       parameters:

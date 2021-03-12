@@ -90,14 +90,18 @@ var Apis = []model.SysApi{
 	{global.GVA_MODEL{ID: 42, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/system/getServerInfo", "获取服务器信息", "system", "POST"},
 	{global.GVA_MODEL{ID: 43, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/email/emailTest", "发送测试邮件", "email", "POST"},
 	{global.GVA_MODEL{ID: 47, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/findK8sNamespaces", "根据ID获取k8sNamespaces", "k8sNamespaces", "GET"},
-	{global.GVA_MODEL{ID: 48, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/getK8sNamespacesList", "获取所有k8sNamespaces", "k8sNamespaces", "POST"},
+	{global.GVA_MODEL{ID: 48, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sNamespaces/getK8sNamespacesList", "获取所有k8sNamespaces", "k8sNamespaces", "GET"},
 	{global.GVA_MODEL{ID: 49, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sDeployments/getK8sDeploymentList", "获取所有k8sDeployments", "k8sDeployments", "GET"},
 	{global.GVA_MODEL{ID: 50, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sPods/getK8sPodsList", "获取所有k8sPods", "k8sPods", "GET"},
 <<<<<<< HEAD
 >>>>>>> develop
 =======
 	{global.GVA_MODEL{ID: 51, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sCluster/createK8sCluster", "创建k8sCluster", "k8sCluster", "POST"},
+<<<<<<< HEAD
 	{global.GVA_MODEL{ID: 52, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "/k8sCluster/getK8sClusterList", "获取k8sCluster", "k8sCluster", "GET"},
+>>>>>>> develop
+=======
+	{global.GVA_MODEL{ID: 52, CreatedAt: time.Now(), UpdatedAt: time.Now()}, "", "获取k8sCluster", "k8sCluster", "GET"},
 >>>>>>> develop
 }
 

@@ -98,7 +98,7 @@ func UpdateK8sDeployment(c *gin.Context) {
 func FindK8sDeployment(c *gin.Context) {
 	var k8sDeployments model.K8sDeployment
 	_ = c.ShouldBindQuery(&k8sDeployments)
-	if err, rek8sDeployments := service.GetK8sDeployment(k8sDeployments.ID); err != nil {
+	if err, rek8sDeployments := service.GetK8sDeployment(uint(k8sDeployments.ID)); err != nil {
 		global.GVA_LOG.Error("查询失败!", zap.Any("err", err))
 		response.FailWithMessage("查询失败", c)
 	} else {
