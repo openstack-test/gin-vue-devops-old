@@ -17,10 +17,10 @@
       tooltip-effect="dark"
     >
     <el-table-column type="selection" width="55"></el-table-column>   
-    <el-table-column label="ID" prop="id" width="100"></el-table-column>  
+    <el-table-column label="ID" prop="id" width="55"></el-table-column>  
     <el-table-column label="容器" prop="podName" width="300"></el-table-column> 
-    <el-table-column label="容器IP" prop="podIP" width="200"></el-table-column>
-    <el-table-column label="主机IP" prop="hostIP" width="200"></el-table-column>
+    <el-table-column label="容器IP" prop="podIP" width="150"></el-table-column>
+    <el-table-column label="主机IP" prop="hostIP" width="150"></el-table-column>
     <el-table-column label="状态" prop="status" width="150"></el-table-column> 
     <el-table-column label="启动时间" prop="startTime" width="200"></el-table-column>   
     <el-table-column label="重启次数" prop="restartCount" width="100"></el-table-column> 

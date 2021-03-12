@@ -65,7 +65,7 @@ func GetK8sNamespaces(id uint) (err error, k8sNamespaces model.K8sNamespaces) {
 //@param: info request.K8sNamespacesSearch
 //@return: err error, list []*model.K8sNamespaces, total int64
 
-func GetK8sNamespacesInfoList(info request.K8sNamespacesSearch) (err error, list []*model.K8sNamespaces, total int64) {
+func GetK8sNamespacesInfoList() (err error, list []*model.K8sNamespaces, total int64) {
 	// 初始化k8s客户端
 	clientset, err := utils.InitClient()
 	if err != nil {
