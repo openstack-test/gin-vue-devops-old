@@ -1109,11 +1109,7 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/GetMenuAuthority": {
-=======
         "/k8sDeployments/createK8sDeployment": {
->>>>>>> develop
             "post": {
                 "security": [
                     {
@@ -1127,30 +1123,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "AuthorityMenu"
-                ],
-                "summary": "获取指定角色menu",
-                "parameters": [
-                    {
-                        "description": "角色ID",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "创建K8sDeployment",
                 "parameters": [
                     {
                         "description": "创建K8sDeployment",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.GetAuthorityId"
-=======
                             "$ref": "#/definitions/model.K8sDeployment"
->>>>>>> develop
                         }
                     }
                 ],
@@ -1164,13 +1147,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/addBaseMenu": {
-            "post": {
-=======
         "/k8sDeployments/deleteK8sDeployment": {
             "delete": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1183,40 +1161,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "Menu"
-                ],
-                "summary": "新增菜单",
-                "parameters": [
-                    {
-                        "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "删除K8sDeployment",
                 "parameters": [
                     {
                         "description": "删除K8sDeployment",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysBaseMenu"
-=======
                             "$ref": "#/definitions/model.K8sDeployment"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1224,13 +1185,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/addMenuAuthority": {
-            "post": {
-=======
         "/k8sDeployments/deleteK8sDeploymentByIds": {
             "delete": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1243,40 +1199,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "AuthorityMenu"
-                ],
-                "summary": "增加menu和角色关联关系",
-                "parameters": [
-                    {
-                        "description": "角色ID",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "批量删除K8sDeployment",
                 "parameters": [
                     {
                         "description": "批量删除K8sDeployment",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.AddMenuAuthorityInfo"
-=======
                             "$ref": "#/definitions/request.IdsReq"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1284,13 +1223,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/deleteBaseMenu": {
-            "post": {
-=======
         "/k8sDeployments/findK8sDeployment": {
             "get": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1303,40 +1237,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "Menu"
-                ],
-                "summary": "删除菜单",
-                "parameters": [
-                    {
-                        "description": "菜单id",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "用id查询K8sDeployment",
                 "parameters": [
                     {
                         "description": "用id查询K8sDeployment",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.GetById"
-=======
                             "$ref": "#/definitions/model.K8sDeployment"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1344,13 +1261,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/getBaseMenuById": {
-            "post": {
-=======
         "/k8sDeployments/getK8sDeploymentList": {
             "get": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1363,100 +1275,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "Menu"
-                ],
-                "summary": "根据id获取菜单",
-                "parameters": [
-                    {
-                        "description": "菜单id",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/request.GetById"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/menu/getBaseMenuTree": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "AuthorityMenu"
-                ],
-                "summary": "获取用户动态路由",
-                "parameters": [
-                    {
-                        "description": "空",
-                        "name": "data",
-                        "in": "body",
-                        "required": true,
-                        "schema": {
-                            "$ref": "#/definitions/request.Empty"
-                        }
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
-                        "schema": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        },
-        "/menu/getMenu": {
-            "post": {
-                "security": [
-                    {
-                        "ApiKeyAuth": []
-                    }
-                ],
-                "produces": [
-                    "application/json"
-                ],
-                "tags": [
-                    "AuthorityMenu"
-                ],
-                "summary": "获取用户动态路由",
-                "parameters": [
-                    {
-                        "description": "空",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "分页获取K8sDeployment列表",
                 "parameters": [
                     {
                         "description": "分页获取K8sDeployment列表",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.Empty"
-=======
                             "$ref": "#/definitions/request.K8sDeploymentSearch"
->>>>>>> develop
                         }
                     }
                 ],
@@ -1470,13 +1299,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/getMenuList": {
-            "post": {
-=======
         "/k8sDeployments/updateK8sDeployment": {
             "put": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1489,40 +1313,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "Menu"
-                ],
-                "summary": "分页获取基础menu列表",
-                "parameters": [
-                    {
-                        "description": "页码, 每页大小",
-=======
                     "K8sDeployment"
                 ],
                 "summary": "更新K8sDeployment",
                 "parameters": [
                     {
                         "description": "更新K8sDeployment",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.PageInfo"
-=======
                             "$ref": "#/definitions/model.K8sDeployment"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1530,13 +1337,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/menu/updateBaseMenu": {
-            "post": {
-=======
         "/k8sNamespaces/findK8sNamespaces": {
             "get": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1549,40 +1351,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "Menu"
-                ],
-                "summary": "更新菜单",
-                "parameters": [
-                    {
-                        "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
-=======
                     "K8sNamespaces"
                 ],
                 "summary": "用id查询K8sNamespaces",
                 "parameters": [
                     {
                         "description": "用id查询K8sNamespaces",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysBaseMenu"
-=======
                             "$ref": "#/definitions/model.K8sNamespaces"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1590,16 +1375,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionary/createSysDictionary": {
-=======
         "/k8sNamespaces/getK8sNamespacesList": {
-<<<<<<< HEAD
->>>>>>> develop
-            "post": {
-=======
             "get": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1612,40 +1389,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionary"
-                ],
-                "summary": "创建SysDictionary",
-                "parameters": [
-                    {
-                        "description": "SysDictionary模型",
-=======
                     "K8sNamespaces"
                 ],
                 "summary": "分页获取K8sNamespaces列表",
                 "parameters": [
                     {
                         "description": "分页获取K8sNamespaces列表",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionary"
-=======
                             "$ref": "#/definitions/request.K8sNamespacesSearch"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1653,12 +1413,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-<<<<<<< HEAD
-        "/sysDictionary/deleteSysDictionary": {
-            "delete": {
-=======
-=======
         "/k8sPods/createK8sPods": {
             "post": {
                 "security": [
@@ -1887,10 +1641,8 @@ var doc = `{
                 }
             }
         },
->>>>>>> develop
         "/menu/GetMenuAuthority": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1903,40 +1655,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionary"
-                ],
-                "summary": "删除SysDictionary",
-                "parameters": [
-                    {
-                        "description": "SysDictionary模型",
-=======
                     "AuthorityMenu"
                 ],
                 "summary": "获取指定角色menu",
                 "parameters": [
                     {
                         "description": "角色ID",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionary"
-=======
                             "$ref": "#/definitions/request.GetAuthorityId"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -1944,13 +1679,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionary/findSysDictionary": {
-            "get": {
-=======
         "/menu/addBaseMenu": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -1963,40 +1693,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionary"
-                ],
-                "summary": "用id查询SysDictionary",
-                "parameters": [
-                    {
-                        "description": "ID或字典英名",
-=======
                     "Menu"
                 ],
                 "summary": "新增菜单",
                 "parameters": [
                     {
                         "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionary"
-=======
                             "$ref": "#/definitions/model.SysBaseMenu"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2004,13 +1717,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionary/getSysDictionaryList": {
-            "get": {
-=======
         "/menu/addMenuAuthority": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -2023,40 +1731,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionary"
-                ],
-                "summary": "分页获取SysDictionary列表",
-                "parameters": [
-                    {
-                        "description": "页码, 每页大小, 搜索条件",
-=======
                     "AuthorityMenu"
                 ],
                 "summary": "增加menu和角色关联关系",
                 "parameters": [
                     {
                         "description": "角色ID",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.SysDictionarySearch"
-=======
                             "$ref": "#/definitions/request.AddMenuAuthorityInfo"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"添加成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2064,13 +1755,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionary/updateSysDictionary": {
-            "put": {
-=======
         "/menu/deleteBaseMenu": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -2083,40 +1769,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionary"
-                ],
-                "summary": "更新SysDictionary",
-                "parameters": [
-                    {
-                        "description": "SysDictionary模型",
-=======
                     "Menu"
                 ],
                 "summary": "删除菜单",
                 "parameters": [
                     {
                         "description": "菜单id",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionary"
-=======
                             "$ref": "#/definitions/request.GetById"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2124,11 +1793,7 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionaryDetail/createSysDictionaryDetail": {
-=======
         "/menu/getBaseMenuById": {
->>>>>>> develop
             "post": {
                 "security": [
                     {
@@ -2142,40 +1807,23 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionaryDetail"
-                ],
-                "summary": "创建SysDictionaryDetail",
-                "parameters": [
-                    {
-                        "description": "SysDictionaryDetail模型",
-=======
                     "Menu"
                 ],
                 "summary": "根据id获取菜单",
                 "parameters": [
                     {
                         "description": "菜单id",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionaryDetail"
-=======
                             "$ref": "#/definitions/request.GetById"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"创建成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2183,62 +1831,34 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionaryDetail/deleteSysDictionaryDetail": {
-            "delete": {
-=======
         "/menu/getBaseMenuTree": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-<<<<<<< HEAD
-                "consumes": [
-                    "application/json"
-                ],
-=======
->>>>>>> develop
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionaryDetail"
-                ],
-                "summary": "删除SysDictionaryDetail",
-                "parameters": [
-                    {
-                        "description": "SysDictionaryDetail模型",
-=======
                     "AuthorityMenu"
                 ],
                 "summary": "获取用户动态路由",
                 "parameters": [
                     {
                         "description": "空",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionaryDetail"
-=======
                             "$ref": "#/definitions/request.Empty"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2246,62 +1866,34 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionaryDetail/findSysDictionaryDetail": {
-            "get": {
-=======
         "/menu/getMenu": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
                     }
                 ],
-<<<<<<< HEAD
-                "consumes": [
-                    "application/json"
-                ],
-=======
->>>>>>> develop
                 "produces": [
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionaryDetail"
-                ],
-                "summary": "用id查询SysDictionaryDetail",
-                "parameters": [
-                    {
-                        "description": "用id查询SysDictionaryDetail",
-=======
                     "AuthorityMenu"
                 ],
                 "summary": "获取用户动态路由",
                 "parameters": [
                     {
                         "description": "空",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionaryDetail"
-=======
                             "$ref": "#/definitions/request.Empty"
->>>>>>> develop
                         }
                     }
                 ],
                 "responses": {
                     "200": {
-<<<<<<< HEAD
-                        "description": "{\"success\":true,\"data\":{},\"msg\":\"查询成功\"}",
-=======
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
->>>>>>> develop
                         "schema": {
                             "type": "string"
                         }
@@ -2309,13 +1901,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionaryDetail/getSysDictionaryDetailList": {
-            "get": {
-=======
         "/menu/getMenuList": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -2328,30 +1915,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionaryDetail"
-                ],
-                "summary": "分页获取SysDictionaryDetail列表",
-                "parameters": [
-                    {
-                        "description": "页码, 每页大小, 搜索条件",
-=======
                     "Menu"
                 ],
                 "summary": "分页获取基础menu列表",
                 "parameters": [
                     {
                         "description": "页码, 每页大小",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/request.SysDictionaryDetailSearch"
-=======
                             "$ref": "#/definitions/request.PageInfo"
->>>>>>> develop
                         }
                     }
                 ],
@@ -2365,13 +1939,8 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "/sysDictionaryDetail/updateSysDictionaryDetail": {
-            "put": {
-=======
         "/menu/updateBaseMenu": {
             "post": {
->>>>>>> develop
                 "security": [
                     {
                         "ApiKeyAuth": []
@@ -2384,30 +1953,17 @@ var doc = `{
                     "application/json"
                 ],
                 "tags": [
-<<<<<<< HEAD
-                    "SysDictionaryDetail"
-                ],
-                "summary": "更新SysDictionaryDetail",
-                "parameters": [
-                    {
-                        "description": "更新SysDictionaryDetail",
-=======
                     "Menu"
                 ],
                 "summary": "更新菜单",
                 "parameters": [
                     {
                         "description": "路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记",
->>>>>>> develop
                         "name": "data",
                         "in": "body",
                         "required": true,
                         "schema": {
-<<<<<<< HEAD
-                            "$ref": "#/definitions/model.SysDictionaryDetail"
-=======
                             "$ref": "#/definitions/model.SysBaseMenu"
->>>>>>> develop
                         }
                     }
                 ],
@@ -3076,10 +2632,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
         "model.K8sCluster": {
             "type": "object",
             "properties": {
@@ -3103,7 +2655,6 @@ var doc = `{
                 }
             }
         },
->>>>>>> develop
         "model.K8sDeployment": {
             "type": "object",
             "properties": {
@@ -3156,9 +2707,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
->>>>>>> develop
-=======
         "model.K8sPods": {
             "type": "object",
             "properties": {
@@ -3179,7 +2727,6 @@ var doc = `{
                 }
             }
         },
->>>>>>> develop
         "model.SysApi": {
             "type": "object",
             "properties": {
@@ -3335,70 +2882,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "model.SysDictionary": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "desc": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "name": {
-                    "type": "string"
-                },
-                "status": {
-                    "type": "boolean"
-                },
-                "sysDictionaryDetails": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/model.SysDictionaryDetail"
-                    }
-                },
-                "type": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
-            }
-        },
-        "model.SysDictionaryDetail": {
-            "type": "object",
-            "properties": {
-                "createdAt": {
-                    "type": "string"
-                },
-                "id": {
-                    "type": "integer"
-                },
-                "label": {
-                    "type": "string"
-                },
-                "sort": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "boolean"
-                },
-                "sysDictionaryID": {
-                    "type": "integer"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "value": {
-                    "type": "integer"
-                }
-            }
-        },
-=======
->>>>>>> develop
         "model.SysUser": {
             "type": "object",
             "properties": {
@@ -3511,49 +2994,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-        "request.Login": {
-            "type": "object",
-            "properties": {
-                "captcha": {
-                    "type": "string"
-                },
-                "captchaId": {
-                    "type": "string"
-                },
-                "password": {
-                    "type": "string"
-                },
-                "username": {
-                    "type": "string"
-                }
-            }
-        },
-        "request.PageInfo": {
-            "type": "object",
-            "properties": {
-                "page": {
-                    "type": "integer"
-                },
-                "pageSize": {
-                    "type": "integer"
-                }
-            }
-        },
-        "request.SearchApiParams": {
-            "type": "object",
-            "properties": {
-                "apiGroup": {
-                    "type": "string"
-                },
-                "createdAt": {
-                    "type": "string"
-                },
-                "desc": {
-                    "type": "boolean"
-                },
-                "description": {
-=======
         "request.IdsReq": {
             "type": "object",
             "properties": {
@@ -3601,20 +3041,12 @@ var doc = `{
                     "type": "string"
                 },
                 "deployment": {
->>>>>>> develop
                     "type": "string"
                 },
                 "id": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-                "method": {
-                    "type": "string"
-                },
-                "orderKey": {
-=======
                 "namespace": {
->>>>>>> develop
                     "type": "string"
                 },
                 "page": {
@@ -3623,29 +3055,9 @@ var doc = `{
                 "pageSize": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-<<<<<<< HEAD
-                "path": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
-                }
-            }
-        },
-        "request.SetUserAuth": {
-            "type": "object",
-            "properties": {
-                "authorityId": {
-                    "type": "string"
-                },
-                "uuid": {
-=======
-=======
                 "replicas": {
                     "type": "integer"
                 },
->>>>>>> develop
                 "status": {
                     "type": "string"
                 },
@@ -3653,16 +3065,11 @@ var doc = `{
                     "type": "string"
                 },
                 "updatedAt": {
->>>>>>> develop
                     "type": "string"
                 }
             }
         },
-<<<<<<< HEAD
-        "request.SysDictionaryDetailSearch": {
-=======
         "request.K8sNamespacesSearch": {
->>>>>>> develop
             "type": "object",
             "properties": {
                 "createdAt": {
@@ -3671,11 +3078,7 @@ var doc = `{
                 "id": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-                "label": {
-=======
                 "namespace": {
->>>>>>> develop
                     "type": "string"
                 },
                 "page": {
@@ -3684,21 +3087,6 @@ var doc = `{
                 "pageSize": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-                "sort": {
-                    "type": "integer"
-                },
-                "status": {
-                    "type": "boolean"
-                },
-                "sysDictionaryID": {
-                    "type": "integer"
-                },
-                "updatedAt": {
-                    "type": "string"
-                },
-                "value": {
-=======
                 "status": {
                     "type": "string"
                 },
@@ -3760,46 +3148,32 @@ var doc = `{
                     "type": "integer"
                 },
                 "pageSize": {
->>>>>>> develop
                     "type": "integer"
                 }
             }
         },
-<<<<<<< HEAD
-        "request.SysDictionarySearch": {
-            "type": "object",
-            "properties": {
-=======
         "request.SearchApiParams": {
             "type": "object",
             "properties": {
                 "apiGroup": {
                     "type": "string"
                 },
->>>>>>> develop
                 "createdAt": {
                     "type": "string"
                 },
                 "desc": {
-<<<<<<< HEAD
-=======
                     "type": "boolean"
                 },
                 "description": {
->>>>>>> develop
                     "type": "string"
                 },
                 "id": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-                "name": {
-=======
                 "method": {
                     "type": "string"
                 },
                 "orderKey": {
->>>>>>> develop
                     "type": "string"
                 },
                 "page": {
@@ -3808,20 +3182,7 @@ var doc = `{
                 "pageSize": {
                     "type": "integer"
                 },
-<<<<<<< HEAD
-                "status": {
-                    "type": "boolean"
-                },
-                "sysDictionaryDetails": {
-                    "type": "array",
-                    "items": {
-                        "$ref": "#/definitions/model.SysDictionaryDetail"
-                    }
-                },
-                "type": {
-=======
                 "path": {
->>>>>>> develop
                     "type": "string"
                 },
                 "updatedAt": {
@@ -3829,8 +3190,6 @@ var doc = `{
                 }
             }
         },
-<<<<<<< HEAD
-=======
         "request.SetUserAuth": {
             "type": "object",
             "properties": {
@@ -3842,7 +3201,6 @@ var doc = `{
                 }
             }
         },
->>>>>>> develop
         "response.SysAuthorityCopyResponse": {
             "type": "object",
             "properties": {

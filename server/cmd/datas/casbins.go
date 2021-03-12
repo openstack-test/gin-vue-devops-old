@@ -50,20 +50,6 @@ var Carbines = []gormadapter.CasbinRule{
 	{PType: "p", V0: "888", V1: "/autoCode/getTables", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/autoCode/getDB", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/autoCode/getColumn", V2: "GET"},
-<<<<<<< HEAD
-	{PType: "p", V0: "888", V1: "/sysDictionaryDetail/createSysDictionaryDetail", V2: "POST"},
-	{PType: "p", V0: "888", V1: "/sysDictionaryDetail/deleteSysDictionaryDetail", V2: "DELETE"},
-	{PType: "p", V0: "888", V1: "/sysDictionaryDetail/updateSysDictionaryDetail", V2: "PUT"},
-	{PType: "p", V0: "888", V1: "/sysDictionaryDetail/findSysDictionaryDetail", V2: "GET"},
-	{PType: "p", V0: "888", V1: "/sysDictionaryDetail/getSysDictionaryDetailList", V2: "GET"},
-	{PType: "p", V0: "888", V1: "/sysDictionary/createSysDictionary", V2: "POST"},
-	{PType: "p", V0: "888", V1: "/sysDictionary/deleteSysDictionary", V2: "DELETE"},
-	{PType: "p", V0: "888", V1: "/sysDictionary/updateSysDictionary", V2: "PUT"},
-	{PType: "p", V0: "888", V1: "/sysDictionary/findSysDictionary", V2: "GET"},
-	{PType: "p", V0: "888", V1: "/sysDictionary/getSysDictionaryList", V2: "GET"},
-	{PType: "p", V0: "888", V1: "/user/setUserInfo", V2: "PUT"},
-	{PType: "p", V0: "888", V1: "/email/emailTest", V2: "POST"},
-=======
 	{PType: "p", V0: "888", V1: "/user/setUserInfo", V2: "PUT"},
 	{PType: "p", V0: "888", V1: "/email/emailTest", V2: "POST"},
 	{PType: "p", V0: "888", V1: "/k8sCluster/createK8sCluster", V2: "POST"},
@@ -73,7 +59,6 @@ var Carbines = []gormadapter.CasbinRule{
 	{PType: "p", V0: "888", V1: "/k8sNamespaces/getK8sNamespacesList", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/k8sDeployments/getK8sDeploymentList", V2: "GET"},
 	{PType: "p", V0: "888", V1: "/k8sPods/getK8sPodsList", V2: "GET"},
->>>>>>> develop
 	{PType: "p", V0: "8881", V1: "/base/login", V2: "POST"},
 	{PType: "p", V0: "8881", V1: "/user/register", V2: "POST"},
 	{PType: "p", V0: "8881", V1: "/api/createApi", V2: "POST"},

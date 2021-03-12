@@ -208,10 +208,6 @@ definitions:
       fieldType:
         type: string
     type: object
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
   model.K8sCluster:
     properties:
       clusterName:
@@ -227,7 +223,6 @@ definitions:
       updatedAt:
         type: string
     type: object
->>>>>>> develop
   model.K8sDeployment:
     properties:
       createdAt:
@@ -262,9 +257,6 @@ definitions:
       updatedAt:
         type: string
     type: object
-<<<<<<< HEAD
->>>>>>> develop
-=======
   model.K8sPods:
     properties:
       createdAt:
@@ -278,7 +270,6 @@ definitions:
       updatedAt:
         type: string
     type: object
->>>>>>> develop
   model.SysApi:
     properties:
       apiGroup:
@@ -381,49 +372,6 @@ definitions:
       value:
         type: string
     type: object
-<<<<<<< HEAD
-  model.SysDictionary:
-    properties:
-      createdAt:
-        type: string
-      desc:
-        type: string
-      id:
-        type: integer
-      name:
-        type: string
-      status:
-        type: boolean
-      sysDictionaryDetails:
-        items:
-          $ref: '#/definitions/model.SysDictionaryDetail'
-        type: array
-      type:
-        type: string
-      updatedAt:
-        type: string
-    type: object
-  model.SysDictionaryDetail:
-    properties:
-      createdAt:
-        type: string
-      id:
-        type: integer
-      label:
-        type: string
-      sort:
-        type: integer
-      status:
-        type: boolean
-      sysDictionaryID:
-        type: integer
-      updatedAt:
-        type: string
-      value:
-        type: integer
-    type: object
-=======
->>>>>>> develop
   model.SysUser:
     properties:
       authority:
@@ -496,8 +444,6 @@ definitions:
       id:
         type: number
     type: object
-<<<<<<< HEAD
-=======
   request.IdsReq:
     properties:
       ids:
@@ -566,9 +512,6 @@ definitions:
       updatedAt:
         type: string
     type: object
-<<<<<<< HEAD
->>>>>>> develop
-=======
   request.K8sPodsSearch:
     properties:
       createdAt:
@@ -586,7 +529,6 @@ definitions:
       updatedAt:
         type: string
     type: object
->>>>>>> develop
   request.Login:
     properties:
       captcha:
@@ -637,57 +579,6 @@ definitions:
       uuid:
         type: string
     type: object
-<<<<<<< HEAD
-  request.SysDictionaryDetailSearch:
-    properties:
-      createdAt:
-        type: string
-      id:
-        type: integer
-      label:
-        type: string
-      page:
-        type: integer
-      pageSize:
-        type: integer
-      sort:
-        type: integer
-      status:
-        type: boolean
-      sysDictionaryID:
-        type: integer
-      updatedAt:
-        type: string
-      value:
-        type: integer
-    type: object
-  request.SysDictionarySearch:
-    properties:
-      createdAt:
-        type: string
-      desc:
-        type: string
-      id:
-        type: integer
-      name:
-        type: string
-      page:
-        type: integer
-      pageSize:
-        type: integer
-      status:
-        type: boolean
-      sysDictionaryDetails:
-        items:
-          $ref: '#/definitions/model.SysDictionaryDetail'
-        type: array
-      type:
-        type: string
-      updatedAt:
-        type: string
-    type: object
-=======
->>>>>>> develop
   response.SysAuthorityCopyResponse:
     properties:
       authority:
@@ -1356,29 +1247,17 @@ paths:
       summary: jwt加入黑名单
       tags:
       - Jwt
-<<<<<<< HEAD
-  /menu/GetMenuAuthority:
-=======
   /k8sDeployments/createK8sDeployment:
->>>>>>> develop
     post:
       consumes:
       - application/json
       parameters:
-<<<<<<< HEAD
-      - description: 角色ID
-=======
       - description: 创建K8sDeployment
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.GetAuthorityId'
-=======
           $ref: '#/definitions/model.K8sDeployment'
->>>>>>> develop
       produces:
       - application/json
       responses:
@@ -1388,17 +1267,6 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 获取指定角色menu
-      tags:
-      - AuthorityMenu
-  /menu/addBaseMenu:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记
-=======
       summary: 创建K8sDeployment
       tags:
       - K8sDeployment
@@ -1408,40 +1276,20 @@ paths:
       - application/json
       parameters:
       - description: 删除K8sDeployment
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysBaseMenu'
-=======
           $ref: '#/definitions/model.K8sDeployment'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"添加成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"删除成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 新增菜单
-      tags:
-      - Menu
-  /menu/addMenuAuthority:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 角色ID
-=======
       summary: 删除K8sDeployment
       tags:
       - K8sDeployment
@@ -1451,40 +1299,20 @@ paths:
       - application/json
       parameters:
       - description: 批量删除K8sDeployment
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.AddMenuAuthorityInfo'
-=======
           $ref: '#/definitions/request.IdsReq'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"添加成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"批量删除成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 增加menu和角色关联关系
-      tags:
-      - AuthorityMenu
-  /menu/deleteBaseMenu:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 菜单id
-=======
       summary: 批量删除K8sDeployment
       tags:
       - K8sDeployment
@@ -1494,61 +1322,20 @@ paths:
       - application/json
       parameters:
       - description: 用id查询K8sDeployment
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.GetById'
-=======
           $ref: '#/definitions/model.K8sDeployment'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"删除成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"查询成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 删除菜单
-      tags:
-      - Menu
-  /menu/getBaseMenuById:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 菜单id
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/request.GetById'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"success":true,"data":{},"msg":"获取成功"}'
-          schema:
-            type: string
-      security:
-      - ApiKeyAuth: []
-      summary: 根据id获取菜单
-      tags:
-      - Menu
-  /menu/getBaseMenuTree:
-    post:
-      parameters:
-      - description: 空
-=======
       summary: 用id查询K8sDeployment
       tags:
       - K8sDeployment
@@ -1558,16 +1345,11 @@ paths:
       - application/json
       parameters:
       - description: 分页获取K8sDeployment列表
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.Empty'
-=======
           $ref: '#/definitions/request.K8sDeploymentSearch'
->>>>>>> develop
       produces:
       - application/json
       responses:
@@ -1577,38 +1359,6 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 获取用户动态路由
-      tags:
-      - AuthorityMenu
-  /menu/getMenu:
-    post:
-      parameters:
-      - description: 空
-        in: body
-        name: data
-        required: true
-        schema:
-          $ref: '#/definitions/request.Empty'
-      produces:
-      - application/json
-      responses:
-        "200":
-          description: '{"success":true,"data":{},"msg":"获取成功"}'
-          schema:
-            type: string
-      security:
-      - ApiKeyAuth: []
-      summary: 获取用户动态路由
-      tags:
-      - AuthorityMenu
-  /menu/getMenuList:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 页码, 每页大小
-=======
       summary: 分页获取K8sDeployment列表
       tags:
       - K8sDeployment
@@ -1618,40 +1368,20 @@ paths:
       - application/json
       parameters:
       - description: 更新K8sDeployment
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.PageInfo'
-=======
           $ref: '#/definitions/model.K8sDeployment'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"获取成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"更新成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 分页获取基础menu列表
-      tags:
-      - Menu
-  /menu/updateBaseMenu:
-    post:
-      consumes:
-      - application/json
-      parameters:
-      - description: 路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记
-=======
       summary: 更新K8sDeployment
       tags:
       - K8sDeployment
@@ -1661,86 +1391,43 @@ paths:
       - application/json
       parameters:
       - description: 用id查询K8sNamespaces
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysBaseMenu'
-=======
           $ref: '#/definitions/model.K8sNamespaces'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"更新成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"查询成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 更新菜单
-      tags:
-      - Menu
-  /sysDictionary/createSysDictionary:
-=======
       summary: 用id查询K8sNamespaces
       tags:
       - K8sNamespaces
   /k8sNamespaces/getK8sNamespacesList:
-<<<<<<< HEAD
->>>>>>> develop
-    post:
-=======
     get:
->>>>>>> develop
       consumes:
       - application/json
       parameters:
-<<<<<<< HEAD
-      - description: SysDictionary模型
-=======
       - description: 分页获取K8sNamespaces列表
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionary'
-=======
           $ref: '#/definitions/request.K8sNamespacesSearch'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"创建成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"获取成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 创建SysDictionary
-      tags:
-      - SysDictionary
-  /sysDictionary/deleteSysDictionary:
-    delete:
-      consumes:
-      - application/json
-      parameters:
-      - description: SysDictionary模型
-=======
       summary: 分页获取K8sNamespaces列表
       tags:
       - K8sNamespaces
@@ -1888,40 +1575,20 @@ paths:
       - application/json
       parameters:
       - description: 角色ID
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionary'
-=======
           $ref: '#/definitions/request.GetAuthorityId'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"删除成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"获取成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 删除SysDictionary
-      tags:
-      - SysDictionary
-  /sysDictionary/findSysDictionary:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: ID或字典英名
-=======
       summary: 获取指定角色menu
       tags:
       - AuthorityMenu
@@ -1931,40 +1598,20 @@ paths:
       - application/json
       parameters:
       - description: 路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionary'
-=======
           $ref: '#/definitions/model.SysBaseMenu'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"查询成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"添加成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 用id查询SysDictionary
-      tags:
-      - SysDictionary
-  /sysDictionary/getSysDictionaryList:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: 页码, 每页大小, 搜索条件
-=======
       summary: 新增菜单
       tags:
       - Menu
@@ -1974,40 +1621,20 @@ paths:
       - application/json
       parameters:
       - description: 角色ID
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.SysDictionarySearch'
-=======
           $ref: '#/definitions/request.AddMenuAuthorityInfo'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"获取成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"添加成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 分页获取SysDictionary列表
-      tags:
-      - SysDictionary
-  /sysDictionary/updateSysDictionary:
-    put:
-      consumes:
-      - application/json
-      parameters:
-      - description: SysDictionary模型
-=======
       summary: 增加menu和角色关联关系
       tags:
       - AuthorityMenu
@@ -2017,82 +1644,43 @@ paths:
       - application/json
       parameters:
       - description: 菜单id
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionary'
-=======
           $ref: '#/definitions/request.GetById'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"更新成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"删除成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 更新SysDictionary
-      tags:
-      - SysDictionary
-  /sysDictionaryDetail/createSysDictionaryDetail:
-=======
       summary: 删除菜单
       tags:
       - Menu
   /menu/getBaseMenuById:
->>>>>>> develop
     post:
       consumes:
       - application/json
       parameters:
-<<<<<<< HEAD
-      - description: SysDictionaryDetail模型
-=======
       - description: 菜单id
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionaryDetail'
-=======
           $ref: '#/definitions/request.GetById'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"创建成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"获取成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 创建SysDictionaryDetail
-      tags:
-      - SysDictionaryDetail
-  /sysDictionaryDetail/deleteSysDictionaryDetail:
-    delete:
-      consumes:
-      - application/json
-      parameters:
-      - description: SysDictionaryDetail模型
-=======
       summary: 根据id获取菜单
       tags:
       - Menu
@@ -2100,40 +1688,20 @@ paths:
     post:
       parameters:
       - description: 空
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionaryDetail'
-=======
           $ref: '#/definitions/request.Empty'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"删除成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"获取成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 删除SysDictionaryDetail
-      tags:
-      - SysDictionaryDetail
-  /sysDictionaryDetail/findSysDictionaryDetail:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: 用id查询SysDictionaryDetail
-=======
       summary: 获取用户动态路由
       tags:
       - AuthorityMenu
@@ -2141,40 +1709,20 @@ paths:
     post:
       parameters:
       - description: 空
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionaryDetail'
-=======
           $ref: '#/definitions/request.Empty'
->>>>>>> develop
       produces:
       - application/json
       responses:
         "200":
-<<<<<<< HEAD
-          description: '{"success":true,"data":{},"msg":"查询成功"}'
-=======
           description: '{"success":true,"data":{},"msg":"获取成功"}'
->>>>>>> develop
           schema:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 用id查询SysDictionaryDetail
-      tags:
-      - SysDictionaryDetail
-  /sysDictionaryDetail/getSysDictionaryDetailList:
-    get:
-      consumes:
-      - application/json
-      parameters:
-      - description: 页码, 每页大小, 搜索条件
-=======
       summary: 获取用户动态路由
       tags:
       - AuthorityMenu
@@ -2184,16 +1732,11 @@ paths:
       - application/json
       parameters:
       - description: 页码, 每页大小
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/request.SysDictionaryDetailSearch'
-=======
           $ref: '#/definitions/request.PageInfo'
->>>>>>> develop
       produces:
       - application/json
       responses:
@@ -2203,17 +1746,6 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 分页获取SysDictionaryDetail列表
-      tags:
-      - SysDictionaryDetail
-  /sysDictionaryDetail/updateSysDictionaryDetail:
-    put:
-      consumes:
-      - application/json
-      parameters:
-      - description: 更新SysDictionaryDetail
-=======
       summary: 分页获取基础menu列表
       tags:
       - Menu
@@ -2223,16 +1755,11 @@ paths:
       - application/json
       parameters:
       - description: 路由path, 父菜单ID, 路由name, 对应前端文件路径, 排序标记
->>>>>>> develop
         in: body
         name: data
         required: true
         schema:
-<<<<<<< HEAD
-          $ref: '#/definitions/model.SysDictionaryDetail'
-=======
           $ref: '#/definitions/model.SysBaseMenu'
->>>>>>> develop
       produces:
       - application/json
       responses:
@@ -2242,15 +1769,9 @@ paths:
             type: string
       security:
       - ApiKeyAuth: []
-<<<<<<< HEAD
-      summary: 更新SysDictionaryDetail
-      tags:
-      - SysDictionaryDetail
-=======
       summary: 更新菜单
       tags:
       - Menu
->>>>>>> develop
   /system/ReloadSystem:
     post:
       parameters:
