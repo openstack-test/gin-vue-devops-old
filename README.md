@@ -118,13 +118,13 @@ swag init
 
 ## 系统架构图
 后端
-![系统架构图](http://qmplusimg.henrongyi.top/gva/gin-vue-admin.png)
+![系统架构图](./docs/images/backend-1.png)
 
 前端
-![前端详细设计图](http://qmplusimg.henrongyi.top/naotu.png)
+![前端详细设计图](./docs/images/feature-1.png)
 
 功能预览
-![功能预览](./docs/feature-1.png)
+![功能预览](./docs/images/feature-1.png)
 
 ## 目录结构
 
