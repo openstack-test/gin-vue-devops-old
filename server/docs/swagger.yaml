@@ -225,7 +225,7 @@ definitions:
     type: object
   model.K8sDeployment:
     properties:
-      createdAt:
+      createTime:
         type: string
       deployment:
         type: string
@@ -235,16 +235,10 @@ definitions:
         type: string
       replicas:
         type: integer
-      status:
-        type: string
-      time:
-        type: string
-      updatedAt:
-        type: string
     type: object
   model.K8sNamespaces:
     properties:
-      createdAt:
+      createTime:
         type: string
       id:
         type: integer
@@ -252,22 +246,22 @@ definitions:
         type: string
       status:
         type: string
-      time:
-        type: string
-      updatedAt:
-        type: string
     type: object
   model.K8sPods:
     properties:
-      createdAt:
+      hostIP:
         type: string
       id:
         type: integer
+      podIP:
+        type: string
+      podName:
+        type: string
+      restartCount:
+        type: integer
+      startTime:
+        type: string
       status:
-        type: string
-      time:
-        type: string
-      updatedAt:
         type: string
     type: object
   model.SysApi:
@@ -472,7 +466,7 @@ definitions:
     type: object
   request.K8sDeploymentSearch:
     properties:
-      createdAt:
+      createTime:
         type: string
       deployment:
         type: string
@@ -486,16 +480,10 @@ definitions:
         type: integer
       replicas:
         type: integer
-      status:
-        type: string
-      time:
-        type: string
-      updatedAt:
-        type: string
     type: object
   request.K8sNamespacesSearch:
     properties:
-      createdAt:
+      createTime:
         type: string
       id:
         type: integer
@@ -507,14 +495,10 @@ definitions:
         type: integer
       status:
         type: string
-      time:
-        type: string
-      updatedAt:
-        type: string
     type: object
   request.K8sPodsSearch:
     properties:
-      createdAt:
+      hostIP:
         type: string
       id:
         type: integer
@@ -522,11 +506,15 @@ definitions:
         type: integer
       pageSize:
         type: integer
+      podIP:
+        type: string
+      podName:
+        type: string
+      restartCount:
+        type: integer
+      startTime:
+        type: string
       status:
-        type: string
-      time:
-        type: string
-      updatedAt:
         type: string
     type: object
   request.Login:
@@ -1385,6 +1373,75 @@ paths:
       summary: 更新K8sDeployment
       tags:
       - K8sDeployment
+  /k8sNamespaces/createK8sNamespaces:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: 创建K8sNamespaces
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sNamespaces'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"获取成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 创建K8sNamespaces
+      tags:
+      - K8sNamespaces
+  /k8sNamespaces/deleteK8sNamespaces:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 删除K8sNamespaces
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sNamespaces'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 删除K8sNamespaces
+      tags:
+      - K8sNamespaces
+  /k8sNamespaces/deleteK8sNamespacesByIds:
+    delete:
+      consumes:
+      - application/json
+      parameters:
+      - description: 批量删除K8sNamespaces
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/request.IdsReq'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"批量删除成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 批量删除K8sNamespaces
+      tags:
+      - K8sNamespaces
   /k8sNamespaces/findK8sNamespaces:
     get:
       consumes:
@@ -1429,6 +1486,29 @@ paths:
       security:
       - ApiKeyAuth: []
       summary: 分页获取K8sNamespaces列表
+      tags:
+      - K8sNamespaces
+  /k8sNamespaces/updateK8sNamespaces:
+    put:
+      consumes:
+      - application/json
+      parameters:
+      - description: 更新K8sNamespaces
+        in: body
+        name: data
+        required: true
+        schema:
+          $ref: '#/definitions/model.K8sNamespaces'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: '{"success":true,"data":{},"msg":"更新成功"}'
+          schema:
+            type: string
+      security:
+      - ApiKeyAuth: []
+      summary: 更新K8sNamespaces
       tags:
       - K8sNamespaces
   /k8sPods/createK8sPods:

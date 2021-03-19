@@ -87,7 +87,7 @@ func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error
 			PodName:      pod.ObjectMeta.Name,
 			PodIP:        pod.Status.PodIP,
 			HostIP:       pod.Status.HostIP,
-			Status:       pod.Status.Phase,
+			Status:       string(pod.Status.Phase),
 			StartTime:    formatTime,
 			RestartCount: pod.Status.ContainerStatuses[0].RestartCount,
 		}

@@ -1337,6 +1337,120 @@ var doc = `{
                 }
             }
         },
+        "/k8sNamespaces/createK8sNamespaces": {
+            "post": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sNamespaces"
+                ],
+                "summary": "创建K8sNamespaces",
+                "parameters": [
+                    {
+                        "description": "创建K8sNamespaces",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sNamespaces"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sNamespaces/deleteK8sNamespaces": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sNamespaces"
+                ],
+                "summary": "删除K8sNamespaces",
+                "parameters": [
+                    {
+                        "description": "删除K8sNamespaces",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sNamespaces"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sNamespaces/deleteK8sNamespacesByIds": {
+            "delete": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sNamespaces"
+                ],
+                "summary": "批量删除K8sNamespaces",
+                "parameters": [
+                    {
+                        "description": "批量删除K8sNamespaces",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/request.IdsReq"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"批量删除成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/k8sNamespaces/findK8sNamespaces": {
             "get": {
                 "security": [
@@ -1406,6 +1520,44 @@ var doc = `{
                 "responses": {
                     "200": {
                         "description": "{\"success\":true,\"data\":{},\"msg\":\"获取成功\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/k8sNamespaces/updateK8sNamespaces": {
+            "put": {
+                "security": [
+                    {
+                        "ApiKeyAuth": []
+                    }
+                ],
+                "consumes": [
+                    "application/json"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "tags": [
+                    "K8sNamespaces"
+                ],
+                "summary": "更新K8sNamespaces",
+                "parameters": [
+                    {
+                        "description": "更新K8sNamespaces",
+                        "name": "data",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/model.K8sNamespaces"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"success\":true,\"data\":{},\"msg\":\"更新成功\"}",
                         "schema": {
                             "type": "string"
                         }
@@ -2658,7 +2810,7 @@ var doc = `{
         "model.K8sDeployment": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "createTime": {
                     "type": "string"
                 },
                 "deployment": {
@@ -2672,22 +2824,13 @@ var doc = `{
                 },
                 "replicas": {
                     "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
                 }
             }
         },
         "model.K8sNamespaces": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "createTime": {
                     "type": "string"
                 },
                 "id": {
@@ -2698,31 +2841,31 @@ var doc = `{
                 },
                 "status": {
                     "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
                 }
             }
         },
         "model.K8sPods": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "hostIP": {
                     "type": "string"
                 },
                 "id": {
                     "type": "integer"
                 },
+                "podIP": {
+                    "type": "string"
+                },
+                "podName": {
+                    "type": "string"
+                },
+                "restartCount": {
+                    "type": "integer"
+                },
+                "startTime": {
+                    "type": "string"
+                },
                 "status": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
                     "type": "string"
                 }
             }
@@ -3037,7 +3180,7 @@ var doc = `{
         "request.K8sDeploymentSearch": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "createTime": {
                     "type": "string"
                 },
                 "deployment": {
@@ -3057,22 +3200,13 @@ var doc = `{
                 },
                 "replicas": {
                     "type": "integer"
-                },
-                "status": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
                 }
             }
         },
         "request.K8sNamespacesSearch": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "createTime": {
                     "type": "string"
                 },
                 "id": {
@@ -3089,19 +3223,13 @@ var doc = `{
                 },
                 "status": {
                     "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
-                    "type": "string"
                 }
             }
         },
         "request.K8sPodsSearch": {
             "type": "object",
             "properties": {
-                "createdAt": {
+                "hostIP": {
                     "type": "string"
                 },
                 "id": {
@@ -3113,13 +3241,19 @@ var doc = `{
                 "pageSize": {
                     "type": "integer"
                 },
+                "podIP": {
+                    "type": "string"
+                },
+                "podName": {
+                    "type": "string"
+                },
+                "restartCount": {
+                    "type": "integer"
+                },
+                "startTime": {
+                    "type": "string"
+                },
                 "status": {
-                    "type": "string"
-                },
-                "time": {
-                    "type": "string"
-                },
-                "updatedAt": {
                     "type": "string"
                 }
             }

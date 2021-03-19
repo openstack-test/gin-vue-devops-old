@@ -113,7 +113,7 @@ func FindK8sCluster(c *gin.Context) {
 // @Produce application/json
 // @Param data body request.K8sClusterSearch true "分页获取K8sCluster列表"
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
-// @Router  [get]
+// @Router /K8sCluster/getK8sClusterList [get]
 func GetK8sClusterList(c *gin.Context) {
 	var pageInfo request.K8sClusterSearch
 	_ = c.ShouldBindQuery(&pageInfo)
