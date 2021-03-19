@@ -84,7 +84,7 @@ func GetK8sNamespacesInfoList() (err error, list []*model.K8sNamespaces, total i
 		res := &model.K8sNamespaces{
 			ID:         key,
 			Namespace:  ns.Name,
-			Status:     ns.Status.Phase,
+			Status:     string(ns.Status.Phase),
 			CreateTime: formatTime,
 		}
 		list = append(list, res)
