@@ -1,15 +1,10 @@
 package utils
 
 import (
+	_ "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/client-go/kubernetes"
 	"k8s.io/client-go/tools/clientcmd"
 )
-
-type IdReq struct {
-	ID int `json:"id" uri:"id" binding:"required,min=1" example:"1"`
-}
-
-
 
 func GetK8sClient(k8sConf string) (*kubernetes.Clientset, error) {
 	config, err := clientcmd.RESTConfigFromKubeConfig([]byte(k8sConf))

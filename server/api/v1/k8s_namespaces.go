@@ -2,12 +2,12 @@ package v1
 
 import (
 	"gin-vue-devops/global"
-    "gin-vue-devops/model"
-    "gin-vue-devops/model/request"
-    "gin-vue-devops/model/response"
-    "gin-vue-devops/service"
-    "github.com/gin-gonic/gin"
-    "go.uber.org/zap"
+	"gin-vue-devops/model"
+	"gin-vue-devops/model/request"
+	"gin-vue-devops/model/response"
+	"gin-vue-devops/service"
+	"github.com/gin-gonic/gin"
+	"go.uber.org/zap"
 )
 
 // @Tags K8sNamespaces
@@ -114,9 +114,18 @@ func FindK8sNamespaces(c *gin.Context) {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /k8sNamespaces/getK8sNamespacesList [get]
 func GetK8sNamespacesList(c *gin.Context) {
+/*	clusterID := c.DefaultQuery("clusterID","1")
+	clusterIDuint64,err := strconv.ParseUint(clusterID,10,32)
+	clusterIDuint := uint(clusterIDuint64)
+	err, K8sCluster := service.GetK8sCluster(clusterIDuint)
+	if err != nil{
+		fmt.Println(err)
+	}*/
+	//获取指定cluster id的namespace,接口/k8sNamespaces/getK8sNamespacesList?clusterID=1
+	kubeConfig, _ := ClusterID(c)
 	var pageInfo request.K8sNamespacesSearch
 	_ = c.ShouldBindQuery(&pageInfo)
-	if err, list, total := service.GetK8sNamespacesInfoList(); err != nil {
+	if err, list, total := service.GetK8sNamespacesInfoList(kubeConfig); err != nil {
 	    global.GVA_LOG.Error("获取失败", zap.Any("err", err))
         response.FailWithMessage("获取失败", c)
     } else {
