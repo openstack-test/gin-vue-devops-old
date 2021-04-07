@@ -8,7 +8,7 @@ import (
 )
 
 // 公共方法, 获取指定Cluster ID的K8s资源
-func ClusterID(c *gin.Context) (string, error){
+func ClusterID(c *gin.Context) (string, error) {
 	clusterID := c.DefaultQuery("clusterID", "1")
 	clusterIDuint64, err := strconv.ParseUint(clusterID, 10, 32)
 	clusterIDuint := uint(clusterIDuint64)

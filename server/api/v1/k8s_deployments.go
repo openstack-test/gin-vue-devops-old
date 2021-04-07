@@ -115,10 +115,12 @@ func FindK8sDeployment(c *gin.Context) {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /k8sDeployments/getK8sDeploymentList [get]
 func GetK8sDeploymentList(c *gin.Context) {
+	// 指定Cluster ID
+	kubeConfig, _ := ClusterID(c)
 	var pageInfo request.K8sDeploymentSearch
 	_ = c.ShouldBindQuery(&pageInfo)
 	namespace := c.Query("namespace")
-	if err, list, total := service.GetK8sDeploymentInfoList(namespace, pageInfo); err != nil {
+	if err, list, total := service.GetK8sDeploymentInfoList(kubeConfig, namespace); err != nil {
 		global.GVA_LOG.Error("获取失败", zap.Any("err", err))
 		response.FailWithMessage("获取失败", c)
 	} else {

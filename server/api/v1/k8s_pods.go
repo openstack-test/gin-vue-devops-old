@@ -9,7 +9,7 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
-    _ "k8s.io/api/core/v1"
+	_ "k8s.io/api/core/v1"
 )
 
 // @Tags K8sPods
@@ -116,11 +116,13 @@ func FindK8sPods(c *gin.Context) {
 // @Success 200 {string} string "{"success":true,"data":{},"msg":"获取成功"}"
 // @Router /k8sPods/getK8sPodsList [get]
 func GetK8sPodsList(c *gin.Context) {
+	// 获取指定Cluster ID的kubeconfig
+	kubeConfig, _ := ClusterID(c)
+
 	var pageInfo request.K8sPodsSearch
 	_ = c.ShouldBindQuery(&pageInfo)
-	namespace := c.Query("namespace")
-	//deployment := c.Query("deployment")
-	if err, list, total := service.GetK8sPodsInfoList(namespace, pageInfo); err != nil {
+	//namespace := c.Query("namespace")
+	if err, list, total := service.GetK8sPodsInfoList(kubeConfig); err != nil {
 		global.GVA_LOG.Error("获取失败", zap.Any("err", err))
 		response.FailWithMessage("获取失败", c)
 	} else {

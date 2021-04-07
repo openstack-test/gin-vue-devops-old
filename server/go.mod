@@ -23,7 +23,6 @@ require (
 	github.com/gookit/color v1.3.1
 	github.com/imdario/mergo v0.3.11 // indirect
 	github.com/jehiah/go-strftime v0.0.0-20171201141054-1d33003b3869 // indirect
-	github.com/jinzhu/gorm v1.9.16 // indirect
 	github.com/jordan-wright/email v0.0.0-20200824153738-3f5bafa1cd84
 	github.com/lestrrat-go/file-rotatelogs v2.3.0+incompatible
 	github.com/lestrrat-go/strftime v1.0.3 // indirect
@@ -49,9 +48,9 @@ require (
 	gopkg.in/ini.v1 v1.55.0 // indirect
 	gorm.io/driver/mysql v0.3.0
 	gorm.io/gorm v1.20.5
-	k8s.io/api v0.20.1
-	k8s.io/apimachinery v0.20.1
-	k8s.io/client-go v0.20.0
+	k8s.io/api v0.20.4
+	k8s.io/apimachinery v0.20.4
+	k8s.io/client-go v0.20.4
 )
 
 replace github.com/casbin/gorm-adapter/v3 => github.com/casbin/gorm-adapter/v3 v3.0.2

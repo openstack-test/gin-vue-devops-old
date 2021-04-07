@@ -1,11 +1,5 @@
 package model
 
-/*
-import (
-	 v1 "k8s.io/api/core/v1"
-)
- */
-
 type K8sNamespaces struct {
 	ID         int               `json:"id" gorm:"primarykey" form:"id"`
 	Namespace  string            `json:"namespace" gorm:"comment:命名空间"`
