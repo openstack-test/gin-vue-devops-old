@@ -1,3 +1,7 @@
+#### 分支说明
+  * develop: 是开发分支，有最新提交代码
+  * master： 是稳定分支，代码从develop合过来
+
 # 项目介绍
 本项目基于[Gin-Vue-Admin](https://github.com/flipped-aurora/gin-vue-admin)开源前后端框架开发 (特别感谢!)，在此基础上做了大量精简，力图实现管理Kubernetes、应用监控和发布回滚等功能。
 
