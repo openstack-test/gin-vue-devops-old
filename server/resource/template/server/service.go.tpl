@@ -6,6 +6,10 @@ import (
 	"gin-vue-devops/model/request"
 )
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Create{{.StructName}}
 //@description: 创建{{.StructName}}记录
 //@param: {{.Abbreviation}} model.{{.StructName}}
@@ -16,6 +20,10 @@ func Create{{.StructName}}({{.Abbreviation}} model.{{.StructName}}) (err error) 
 	return err
 }
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Delete{{.StructName}}
 //@description: 删除{{.StructName}}记录
 //@param: {{.Abbreviation}} model.{{.StructName}}
@@ -26,6 +34,10 @@ func Delete{{.StructName}}({{.Abbreviation}} model.{{.StructName}}) (err error) 
 	return err
 }
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Delete{{.StructName}}ByIds
 //@description: 批量删除{{.StructName}}记录
 //@param: ids request.IdsReq
@@ -36,6 +48,10 @@ func Delete{{.StructName}}ByIds(ids request.IdsReq) (err error) {
 	return err
 }
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Update{{.StructName}}
 //@description: 更新{{.StructName}}记录
 //@param: {{.Abbreviation}} *model.{{.StructName}}
@@ -46,6 +62,10 @@ func Update{{.StructName}}({{.Abbreviation}} model.{{.StructName}}) (err error) 
 	return err
 }
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Get{{.StructName}}
 //@description: 根据id获取{{.StructName}}记录
 //@param: id uint
@@ -56,6 +76,10 @@ func Get{{.StructName}}(id uint) (err error, {{.Abbreviation}} model.{{.StructNa
 	return
 }
 
+<<<<<<< HEAD
+//@author: [piexlmax](https://github.com/piexlmax)
+=======
+>>>>>>> develop
 //@function: Get{{.StructName}}InfoList
 //@description: 分页获取{{.StructName}}记录
 //@param: info request.{{.StructName}}Search

@@ -89,11 +89,32 @@
         </el-col>
       </el-form-item>
 
+<<<<<<< HEAD
+      <el-form-item label="关联字典" prop="dictType">
+        <el-col :span="8">
+          <el-select :disabled="dialogMiddle.fieldType!='int'" v-model="dialogMiddle.dictType" placeholder="请选择字典" clearable>
+            <el-option
+              v-for="item in dictOptions"
+              :key="item.type"
+              :label="`${item.type}(${item.name})`"
+              :value="item.type"
+            ></el-option>
+          </el-select>
+        </el-col>
+      </el-form-item>
+=======
+>>>>>>> develop
     </el-form>
   </div>
 </template>
 <script>
+<<<<<<< HEAD
+import { getDict } from "@/utils/dictionary";
 import { toSQLLine , toLowerCase } from "@/utils/stringFun.js";
+import { getSysDictionaryList } from "@/api/sysDictionary";
+=======
+import { toSQLLine , toLowerCase } from "@/utils/stringFun.js";
+>>>>>>> develop
 export default {
   name: "FieldDialog",
   props: {
@@ -182,9 +203,26 @@ export default {
         this.dialogMiddle.dataTypeLong = ""
         this.dialogMiddle.fieldSearchType = ""
         this.dialogMiddle.dictType = ""
+<<<<<<< HEAD
+      if (this.dialogMiddle.fieldType) {
+        const res = await getDict(this.dialogMiddle.fieldType);
+        this.dbfdOptions = res;
+      }
+    }
+  },
+  async created() {
+    const dictRes = await getSysDictionaryList({
+      page: 1,
+      pageSize: 999999
+    });
+
+    this.dictOptions = dictRes.data.list
+  },
+=======
     }
   },
 
+>>>>>>> develop
 };
 </script>
 <style lang="scss">

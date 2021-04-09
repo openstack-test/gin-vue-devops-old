@@ -41,11 +41,23 @@ func Routers() *gin.Engine {
 		router.InitCasbinRouter(PrivateGroup)                // 权限相关路由
 		router.InitAutoCodeRouter(PrivateGroup)              // 创建自动化代码
 		router.InitAuthorityRouter(PrivateGroup)             // 注册角色路由
+<<<<<<< HEAD
+		router.InitSysDictionaryRouter(PrivateGroup)         // 字典管理
+		router.InitSysDictionaryDetailRouter(PrivateGroup)   // 字典详情管理
 		router.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
+=======
+		router.InitFileUploadAndDownloadRouter(PrivateGroup) // 文件上传下载功能路由
+<<<<<<< HEAD
+		router.InitK8sNamespacesRouter(PrivateGroup)         // k8s命名空间路由
+		router.InitK8sDeploymentRouter(PrivateGroup)         // k8s应用路由
+		router.InitK8sPodsRouter(PrivateGroup)               // k8s pod路由
+>>>>>>> develop
+=======
 		router.InitK8sNamespacesRouter(PrivateGroup)         // k8s命名空间管理路由
 		router.InitK8sDeploymentRouter(PrivateGroup)         // k8s应用管理路由
 		router.InitK8sPodsRouter(PrivateGroup)               // k8s容器管理路由
 		router.InitK8sClusterRouter(PrivateGroup)            // k8s集群管理路由
+>>>>>>> develop
 	}
 	global.GVA_LOG.Info("router register success")
 	return Router

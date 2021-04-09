@@ -2,7 +2,10 @@
 /web/node_modules
 /web/dist
 /server/*.exe
+<<<<<<< HEAD
+=======
 /server/kubeconfig/*
+>>>>>>> develop
 
 .DS_Store
 
