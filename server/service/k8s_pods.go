@@ -2,12 +2,11 @@ package service
 
 import (
 	"context"
+	"fmt"
 	"gin-vue-devops/global"
 	"gin-vue-devops/model"
 	"gin-vue-devops/model/request"
 	"gin-vue-devops/utils"
-	"log"
-
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
@@ -65,32 +64,48 @@ func GetK8sPods(id uint) (err error, k8sPods model.K8sPods) {
 //@description: 分页获取K8sPods记录
 //@param: info request.K8sPodsSearch
 //@return: err error, list []*model.K8sPods, total int64
-func GetK8sPodsInfoList(namespace string, info request.K8sPodsSearch) (err error, list []*model.K8sPods, total int64) {
+
+func GetK8sPodsInfoList(k8sConfig string) (err error, list []*model.K8sPods, total int64) {
 	// 初始化k8s客户端
-	clientset, err := utils.InitClient()
+	clientSet, _ := utils.GetK8sClient(k8sConfig)
+
+	namespace := "app"
+	podList, err := clientSet.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
-		log.Fatalln(err)
-	}
-	namespace = "app"
-	podList, err := clientset.CoreV1().Pods(namespace).List(context.TODO(), metav1.ListOptions{})
-	if err != nil {
-		panic(err.Error())
+		fmt.Println(err)
 	}
 
 	for key, pod := range podList.Items {
-		startTime := pod.Status.StartTime.Time
-		// 将time.Time类型转成指定格式字符串
-		formatTime := startTime.Format("2006-01-02 15:04:05")
+		var startTime string
+		var restartCount int32
+		// 必须判断值是否为nil,否则会导致panic(client-go库bug)
+		if pod.Status.StartTime != nil {
+			startTime = pod.Status.StartTime.Format("2006-01-02 15:04:05")
+		}
+		if pod.Status.ContainerStatuses != nil {
+			restartCount = pod.Status.ContainerStatuses[0].RestartCount
+		}
 
 		res := &model.K8sPods{
-			ID:           key,
-			PodName:      pod.ObjectMeta.Name,
-			PodIP:        pod.Status.PodIP,
-			HostIP:       pod.Status.HostIP,
-			Status:       string(pod.Status.Phase),
-			StartTime:    formatTime,
-			RestartCount: pod.Status.ContainerStatuses[0].RestartCount,
+			ID:        key,
+			PodName:   pod.Name,
+			PodIP:     pod.Status.PodIP,
+			HostIP:    pod.Status.HostIP,
+			Status:    string(pod.Status.Phase),
+			StartTime: startTime,
+			RestartCount: restartCount,
 		}
+
+/*		for k, v := range pod.Status.ContainerStatuses {
+			fmt.Printf("index: %#v\n", k)
+			fmt.Println("restart count:", v.RestartCount)
+		}*/
+
+		// 当Pod没有startTime值,默认为空时(如Pending状态)返回“no time”
+		if startTime == "" {
+			res.StartTime = "no time"
+		}
+
 		list = append(list, res)
 	}
 	total = int64(len(list))

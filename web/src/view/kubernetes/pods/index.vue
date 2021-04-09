@@ -1,10 +1,19 @@
 <template>
   <div>
     <div class="search-term">
-      <el-form :inline="true" :model="searchInfo" class="demo-form-inline">          
+      <el-form :inline="true" :model="searchInfo" class="demo-form-inline">
+        <el-form-item label="集群" prop="field101">
+        <el-select v-model="formData.field101" placeholder="请选择集群" clearable :style="{width: '100%'}">
+          <el-option v-for="(item, index) in field101Options" :key="index" :label="item.label"
+            :value="item.value" :disabled="item.disabled"></el-option>
+        </el-select>
+      </el-form-item>
+      <!-- <el-form-item label="容器">
+          <el-input placeholder="请输入容器名" v-model="searchInfo.apiGroup"></el-input>
+        </el-form-item>          
         <el-form-item>
           <el-button @click="onSubmit" type="primary">查询</el-button>
-        </el-form-item>
+        </el-form-item> -->
       </el-form>
     </div>
     <el-table

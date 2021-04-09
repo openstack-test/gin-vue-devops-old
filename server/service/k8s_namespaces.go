@@ -65,12 +65,13 @@ func GetK8sNamespaces(id uint) (err error, k8sNamespaces model.K8sNamespaces) {
 //@param: info request.K8sNamespacesSearch
 //@return: err error, list []*model.K8sNamespaces, total int64
 
-func GetK8sNamespacesInfoList() (err error, list []*model.K8sNamespaces, total int64) {
+func GetK8sNamespacesInfoList(k8sConf string) (err error, list []*model.K8sNamespaces, total int64) {
 	// 初始化k8s客户端
-	clientset, err := utils.InitClient()
+	clientset, err := utils.GetK8sClient(k8sConf)
 	if err != nil {
 		log.Fatalln(err)
 	}
+
 	// 获取所有Namespaces
 	namespaces, err := clientset.CoreV1().Namespaces().List(context.TODO(), metav1.ListOptions{})
 	if err != nil {
@@ -89,6 +90,7 @@ func GetK8sNamespacesInfoList() (err error, list []*model.K8sNamespaces, total i
 		}
 		list = append(list, res)
 	}
+	global.GVA_DB.Create(list)
 	total = int64(len(list))
 	return err, list, total
 }

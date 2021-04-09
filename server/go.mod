@@ -75,9 +75,15 @@ require (
 	gopkg.in/ini.v1 v1.55.0 // indirect
 	gorm.io/driver/mysql v0.3.0
 	gorm.io/gorm v1.20.5
+<<<<<<< HEAD
 	k8s.io/api v0.20.1
 	k8s.io/apimachinery v0.20.1
 	k8s.io/client-go v0.20.0
+>>>>>>> develop
+=======
+	k8s.io/api v0.20.4
+	k8s.io/apimachinery v0.20.4
+	k8s.io/client-go v0.20.4
 >>>>>>> develop
 )
 

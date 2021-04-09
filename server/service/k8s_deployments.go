@@ -66,12 +66,9 @@ func GetK8sDeployment(id uint) (err error, k8sDeployments model.K8sDeployment) {
 //@param: info request.K8sDeploymentSearch
 //@return: err error, list []*model.K8sDeployment, total int64
 
-func GetK8sDeploymentInfoList(namespace string, info request.K8sDeploymentSearch) (err error, list []*model.K8sDeployment, total int64) {
+func GetK8sDeploymentInfoList(k8sConf,namespace string) (err error, list []*model.K8sDeployment, total int64) {
 	//初始化k8s客户端
-	clientset, err := utils.InitClient()
-	if err != nil {
-		log.Fatalln(err)
-	}
+	clientset, _ := utils.GetK8sClient(k8sConf)
 
 	//获取指定namespace的deployments
 	deployments, err := clientset.AppsV1().Deployments(namespace).List(context.TODO(), metav1.ListOptions{})
